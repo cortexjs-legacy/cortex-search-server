@@ -2,6 +2,7 @@
 
 var optimist = require('optimist'),
     fs = require('fs'),
+    path = require('path'),
     domain = require('domain'),
     cluster = require('cluster'),
     app = require('./lib');
@@ -25,7 +26,7 @@ if(argv.help){
     process.exit(2);
 }    
 
-var configPath = argv.config,
+var configPath = path.resolve(__dirname, argv.config),
     config = {};
 
 try {
