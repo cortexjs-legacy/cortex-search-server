@@ -8,20 +8,32 @@ var optimist = require('optimist'),
     env = process.env.NODE_ENV || 'development';
 
 // parse arguments
-var argv = optimist.usage('Usage $0 [-p|--port <port>]')
+var opst = optimist.usage('Usage $0 [-p|--port <port>]')
     .alias('p', 'port')
     .describe('running in port')
     .alias('c', 'config')
     .describe('load config file')
     .boolean('cluster')
     .describe('start server with cluster')
-    .argv;
+    .alias('h', 'help')
+    .describe('show help'),
+    argv = opst.argv;
 
+
+if (argv.help) {
+    opst.showHelp();
+    process.exit(1);
+}
 
 // Load config
-var config = argv.config ? path.join(process.cwd(), argv.config) : ('./config.');
+var config = argv.config && path.join(process.cwd(), argv.config);
 
-config = require(config);
+if (config)
+    config = require(config);
+else
+    config = {
+        name: 'cortex-search-server'
+    };
 
 if (argv.hasOwnProperty('cluster')) {
     config.cluster = argv.cluster;

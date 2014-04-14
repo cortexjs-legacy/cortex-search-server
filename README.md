@@ -1,11 +1,12 @@
 # Cortex Search Server
 
+Cortex Search Site.
 
 ## Run
 
 
 ```
-npm start
+npm run start
 ```
 
 ### License 
