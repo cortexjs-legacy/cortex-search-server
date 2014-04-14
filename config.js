@@ -1,7 +1,8 @@
 module.exports = {
+    name: 'cortex-search-server',
     couchdb: 'http:/couchdb.cortex.dp/',
     registry: 'http://registry.cortex.dp/',
-    port: 15000,
+    port: 8010,
     "elasticsearch": {
         "url": "http://127.0.0.1:9200/cortex",
         "pageSize": 20
@@ -10,7 +11,7 @@ module.exports = {
 };
 
 
-if(require.main == module) {
+if (require.main == module) {
     var util = require('util');
     console.log(util.inspect(module.exports));
 }
