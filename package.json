@@ -6,7 +6,7 @@
     "ctx-search": "./bin/server.js"
   },
   "dependencies": {
-    "marked": "~0.2.4",
+    "marked": "^0.2.10",
     "redis": "~0.8.1",
     "cookies": "~0.3.1",
     "redsess": "~0.3",
@@ -14,7 +14,7 @@
     "nodemailer": "~0.3.19",
     "moment": "~1.6.2",
     "minimatch": "~0.2.6",
-    "sanitizer": "0.0.15",
+    "sanitizer": "^0.1.1",
     "hardhttps": "0",
     "comma-it": "~0.0.4",
     "csrf-lite": "0.1",
@@ -31,16 +31,21 @@
     "co-views": "~0.2.0",
     "co-body": "~0.0.1",
     "koa-trie-router": "~1.0.5",
-    "couche": "~0.0.4"
+    "couch-db": "~1.0.0"
   },
   "engines": {
     "node": ">=0.11.11"
   },
   "scripts": {
     "start": "node --harmony bin/server.js -c config.js",
-    "show-conf": "node config.js"
+    "show-conf": "node config.js",
+    "test": "./node_modules/.bin/mocha --harmony test -R spec"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "supertest": "^0.11.0",
+    "chai": "^1.9.1"
+  },
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",

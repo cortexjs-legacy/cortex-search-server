@@ -1,7 +1,6 @@
 module.exports = {
     name: 'cortex-search-server',
-    couchdb: 'http:/couchdb.cortex.dp/',
-    registry: 'http://registry.cortex.dp/',
+    couchdb: 'http://couch.cortex.dp/',
     port: 8010,
     "elasticsearch": {
         "url": "http://127.0.0.1:9200/cortex",

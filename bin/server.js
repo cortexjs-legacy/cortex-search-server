@@ -39,8 +39,10 @@ if (argv.hasOwnProperty('cluster')) {
     config.cluster = argv.cluster;
 }
 
-var app = require('../lib');
-var port = argv.port || config.port || 8010;
+var port = config.port = argv.port || config.port || 8010;
+
+// init app with config
+var app = require('../lib')(config);
 
 if (config.cluster) {
     if (cluster.isMaster) {
