@@ -14,12 +14,20 @@ describe('rest.js', function() {
             });
     });
 
+    it('search', function(done) {
+        request(app.listen())
+            .get('/rest/search?q=app+cortex&page=0')
+            .expect('Content-Type', /json/)
+            .expect(200, function(err, res) {
+                done(err);
+            });
+    });
+
 
     it('index', function(done) {
         request(app.listen())
             .get('/rest')
-            .expect(404)
-            .end(function(err) {
+            .expect(404, function(err) {
                 done(err);
             });
     });

@@ -4,6 +4,18 @@ require('../lib/configure').load(require('../config'));
 
 var models = require('../lib/models');
 
+
+describe('search.js', function() {
+    this.timeout(40000);
+    var search = require('../lib/models/search');
+
+    it('search', function(done) {
+        search(['app', 'cortex'], 0, 20, function(err, rows) {
+            done(err);
+        });
+    });
+});
+
 describe('depended.js', function() {
     var depended = require('../lib/models/depended');
 

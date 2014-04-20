@@ -2,5 +2,21 @@ doctype html
 html
   head
     title Cortex Search
+    link(rel="stylesheet", type="text/css", href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css")
+    link(rel="stylesheet", type="text/css", href="/css/style.css")
   body
-    h2 Index
+    header.header
+        h1 Cortex Search
+
+    .container
+        .logo
+        form.pure-form(submit="")
+            input.pure-input-rounded(type="text")
+            butotn(type="submit") Search
+
+    footer.footer
+        .links
+            li: a(href="#") Github
+            li: a(href="#") Documentations
+            li: a(href="#") Report
+            li: a(href="#") Issues
