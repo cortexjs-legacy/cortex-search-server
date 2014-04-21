@@ -5,6 +5,17 @@ require('../lib/configure').load(require('../config'));
 var models = require('../lib/models');
 
 
+describe.only('list.js', function() {
+    var list = require('../lib/models/list');
+
+    it('listUpdated', function(done) {
+        list.listUpdated(function(err, rows) {
+            done(err);
+        });
+    });
+});
+
+
 describe('search.js', function() {
     this.timeout(40000);
     var search = require('../lib/models/search');

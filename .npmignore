@@ -1,0 +1,8 @@
+.DS_Store
+._*
+.cache
+.project
+.settings
+node_modules
+config.prod.js
+.cache/

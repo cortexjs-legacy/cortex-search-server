@@ -32,7 +32,8 @@
     "couch-db": "~1.0.0",
     "async": "^0.7.0",
     "nib": "^1.0.2",
-    "modified": "^2.1.13"
+    "modified": "^2.1.13",
+    "gravatar": "^1.0.6"
   },
   "engines": {
     "node": ">=0.11.12"
