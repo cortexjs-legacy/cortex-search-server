@@ -5,11 +5,11 @@ require('../lib/configure').load(require('../config'));
 var models = require('../lib/models');
 
 
-describe.only('list.js', function() {
-    var list = require('../lib/models/list');
+describe('browse.js', function() {
+    var browse = require('../lib/models/browse');
 
-    it('listUpdated', function(done) {
-        list.listUpdated(function(err, rows) {
+    it('browseUpdated', function(done) {
+        browse.browseUpdated(function(err, rows) {
             done(err);
         });
     });
@@ -21,7 +21,9 @@ describe('search.js', function() {
     var search = require('../lib/models/search');
 
     it('search', function(done) {
-        search(['app', 'cortex'], 0, 20, function(err, rows) {
+        search(['app', 'cortex'], {
+            limit: 20
+        }, function(err, rows) {
             done(err);
         });
     });
