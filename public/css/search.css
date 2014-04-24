@@ -246,6 +246,7 @@ img.avatar-sm {
 }
 .metas {
   font-size: 14px;
+  position: relative;
   -webkit-box-shadow: -4px 0px 6px -6px #000;
   box-shadow: -4px 0px 6px -6px #000;
   color: #a6a6a6;
