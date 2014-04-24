@@ -1,0 +1,255 @@
+mods_width= 23%
+detail_width= 54%
+meta_width= 23%
+font_color=#dadada
+
+
+html,body
+    height:100%
+    line-height:1.5
+
+body,h1,h2,h3,h4,h5,h6,p,ul,li
+    margin: 0
+    padding: 0
+    font-family: Helvetica Neue
+    font-weight: 200
+
+a 
+    color : #3aa4d9
+    text-decoration: none
+
+li
+    list-style-type: none
+
+img.avatar
+    width: 76px
+    border-radius: 38px
+    border: 1px solid #E1E1E1
+
+img.avatar-sm
+    width: 54px
+    border-radius: 27px
+    border: 1px solid #E1E1E1
+
+.icon-search,
+.icon-close
+    width: 26px
+    height: 26px
+
+
+.icon-like,
+.icon-download,
+.icon-bug,
+.icon-home,
+.icon-repo
+    height: 22px
+    width: 22px
+
+.head
+    background-color: #000
+    background-image: url("/img/header-bg.jpg")
+    background-position: right top
+    background-repeat: no-repeat
+    height: 60px
+    padding: 10px 15px
+    position: relative
+    z-index:10
+    box-shadow: 0 6px 15px -6px #000;   
+    .logo
+        position: absolute
+        float: left
+        top: 5px
+        left: 15px
+    .search
+        margin-left: 90px
+        margin-top: 10px
+        float: left
+        position: relative
+        width: 430px
+        background-color: #e6e6e7
+        border-radius: 5px
+        .icon-search
+            position: absolute
+            top: 6px
+            left: 6px
+            background-image: url("/img/icon-search.png")
+        .input
+            background-color: #e6e6e7
+            float: left
+            border: none
+            height: 20px
+            margin-left: 40px
+            width: 360px
+            outline: none
+            font-size: 16px
+            line-height: 20px
+            color: #333
+            padding: 10px 0 10px 0
+        .icon-close
+            position: absolute
+            background-image: url("/img/icon-close.png")
+            top: 6px
+            right: 6px
+
+
+mod-padding-right=15px
+mod-padding-top=15px
+$meta-item
+    position: relative
+    padding-left: 20px
+    float: left
+    &:before
+        position: absolute
+        content: ""
+        width: 22px
+        height: 22px
+        left: 0
+        top: 0
+        display: block
+        background-size: cover
+
+$meta-item-sm
+    position: relative
+    padding-left: 20px
+    float: left
+    &:before
+        position: absolute
+        content: ""
+        width: 16px
+        height: 16px
+        left: 0
+        top: 0
+        display: block
+        background-size: cover
+
+.content
+    overflow : hidden
+    height: calc(100% - 80px)
+
+.mods
+    position:relative
+    box-shadow:4px 0px 6px -6px black
+    width: mods_width
+    background-color: #f5f5f5
+    float: left
+    height:100%
+    overflow: scroll
+    .mod-selected
+        background-color:#E8E8E8    
+    .mod
+        border-bottom: 1px solid #d8d8d8
+        padding: mod-padding-top mod-padding-right 26px 24px
+        position: relative
+        .name
+            font-size: 22px
+            color: #333
+        .meta
+            font-size: 14px
+            color: #a6a6a6
+            position: absolute
+            right: mod-padding-right
+            top: mod-padding-top
+            padding:5px
+            .star
+                padding-left: 20px;
+                @extend $meta-item-sm
+                &:before
+                    background-image: url("/img/icon-like.png")
+            .download
+                margin-left:20px
+                padding-left: 20px;
+                @extend $meta-item-sm
+                &:before
+                    background-image: url("/img/icon-like.png")
+        .desc
+            font-size: 14px
+            margin-top: 5px
+            color: #666
+
+.detail
+    width: detail_width
+    float:left
+    background-color:#E8E8E8
+    height:100%
+    color: #666
+    overflow:scroll
+    .block
+        margin:20px 30px
+        clear: both
+    .header
+        border-bottom: solid 1px #BFBCBC;
+        height: 91px;
+        .author
+            float:left
+        .desc
+            float:left
+            margin-left:20px
+            .title
+                font-size: 30px
+                font-weight: bolder
+                color: #333
+            .info
+                font-size:16px
+                .date
+                    margin-left:10px
+
+    .intro
+        font-size:16px
+        margin-bottom:40px
+    .readme
+        .title
+            font-size: 18px
+            color:#666
+            font-weight: bolder
+            padding:5px 0px
+            border-bottom: solid 1px #BFBCBC
+
+$section
+    border-bottom: solid 1px #dadada
+    padding: 12px 0px
+    margin: 0 20px
+    clear:both
+
+.metas
+    font-size:14px
+    box-shadow:-4px 0px 6px -6px black
+    color:#A6A6A6
+    width: meta_width
+    float: left
+    background-color:#f5f5f5
+    height:100%
+    .top
+        height:67px
+    .meta 
+        @extend $section      
+        height:20px
+        .title
+            padding-left: 28px;
+            @extend $meta-item
+            &:before
+                background-image: url("/img/icon-repo.png")
+        .pull-right
+            width:70%
+            white-space: nowrap;
+            text-overflow: ellipsis
+            overflow: hidden
+            float: right
+    .tags
+        @extend $section      
+        clearfix()
+        .title
+            margin-bottom:5px
+        .tag
+            box-shadow: 2px 2px 5px 1px #d8d8d8
+            float:left
+            margin:3px 10px 5px 0px
+            border-radius: 20px
+            border: 1px solid #d8d8d8
+            padding:1px 12px 4px 12px
+            background-color: #ffffff
+    .maintainers
+        @extend $section      
+        border-bottom: none
+        img
+            margin-right:15px
+            margin-top:15px
