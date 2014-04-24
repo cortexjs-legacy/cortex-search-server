@@ -34,7 +34,7 @@
     "nib": "^1.0.2",
     "modified": "^2.1.13",
     "gravatar": "^1.0.6",
-    "cortex-search-utils": "0.0.2",
+    "cortex-search-utils": "~0.0.3",
     "semver": "^2.2.1"
   },
   "engines": {
