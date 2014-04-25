@@ -276,6 +276,17 @@ img.avatar-sm {
   overflow: hidden;
   float: right;
 }
+.metas .tags {
+  zoom: 1;
+}
+.metas .tags:before,
+.metas .tags:after {
+  content: "";
+  display: table;
+}
+.metas .tags:after {
+  clear: both;
+}
 .metas .tags .title {
   margin-bottom: 5px;
 }
