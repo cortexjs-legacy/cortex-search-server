@@ -26,7 +26,6 @@ html(ng-app="app")
         title Cortex Search
         +css("/css/search.css")
         +css("/css/readme.css")
-        +js("/js/lib/marked.js")
         +js("/js/lib/angular.js")
         +js("/js/search.js")
     body(ng-controller="Controller")
@@ -37,35 +36,33 @@ html(ng-app="app")
                 i.icon-search
                 input.input(ng-model="searchInput" ng-enter="search()" placeholder="keyword:ajax|name:jquery|author:ltebean")
                 i.icon-close
-        .content
+        .content(ng-show="pkg")
             .mods
                 +mod
             .detail
-                div(ng-show="pkg")
-                    .block.header 
-                        .author
-                            img.avatar(src="https://avatars0.githubusercontent.com/u/1646564?s=460")
-                        .desc
-                            .title {{pkg.name}}
-                            .info by &nbsp
-                                a {{pkg.author.name}} 
-                                span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
-                    .block.intro
-                        |{{pkg.description}} 
-                    .block.readme 
-                        .title README
-                        .content(ng-bind-html-unsafe="readme")
+                .block.header 
+                    .author
+                        img.avatar(src="https://avatars0.githubusercontent.com/u/1646564?s=460")
+                    .desc
+                        .title {{pkg.name}}
+                        .info by &nbsp
+                            a {{pkg.author.name}} 
+                            span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
+                .block.intro
+                    |{{pkg.description}} 
+                .block.readme 
+                    .title README
+                    .content(ng-bind-html-unsafe="pkg.readme")
             .metas
-                div(ng-show="pkg")
-                    .top 
-                    +meta("Repo","repo","{{pkg.repository.url}}")              
-                    +meta("Home","home","{{pkg.homepage}}")              
-                    +meta("Issues","bug","{{pkg.bugs.url}}")              
-                    .tags
-                        .title Keywords
-                        div
-                            .tag(ng-repeat="keyword in pkg.keywords") {{keyword}}
-                    .maintainers
-                        .title Maintainers
-                        .avatars
-                            img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{getGravatar(maintainer.email,460)}}")
+                .top 
+                +meta("Repo","repo","{{pkg.repository.url}}")              
+                +meta("Home","home","{{pkg.homepage}}")              
+                +meta("Issues","bug","{{pkg.bugs.url}}")              
+                .tags
+                    .title Keywords
+                    div
+                        .tag(ng-repeat="keyword in pkg.keywords") {{keyword}}
+                .maintainers
+                    .title Maintainers
+                    .avatars
+                        img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{maintainer.avatarMedium}}")

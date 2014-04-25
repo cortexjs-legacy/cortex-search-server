@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   line-height: 1.5;
+  background-color: #f5f5f5;
 }
 body,
 h1,
@@ -158,7 +159,7 @@ img.avatar-sm {
 }
 .mods .mod {
   border-bottom: 1px solid #d8d8d8;
-  padding: 15px 15px 26px 24px;
+  padding: 15px 15px 30px 24px;
   position: relative;
 }
 .mods .mod .name {
@@ -274,17 +275,6 @@ img.avatar-sm {
   text-overflow: ellipsis;
   overflow: hidden;
   float: right;
-}
-.metas .tags {
-  zoom: 1;
-}
-.metas .tags:before,
-.metas .tags:after {
-  content: "";
-  display: table;
-}
-.metas .tags:after {
-  clear: both;
 }
 .metas .tags .title {
   margin-bottom: 5px;
