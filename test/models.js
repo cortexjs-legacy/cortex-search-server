@@ -4,7 +4,6 @@ require('../lib/configure').load(require('../config'));
 
 var models = require('../lib/models');
 
-
 describe('browse.js', function() {
     var browse = require('../lib/models/browse');
 
