@@ -47,7 +47,7 @@ var app = require('../lib')(config);
 if (config.cluster) {
     if (cluster.isMaster) {
         // Fork workers.
-        for (var i = 0; i < numCPUs; i++)
+        for (var i = 0; i < require('os').cpus().length; i++)
             cluster.fork();
 
         cluster.on('exit', function(worker, code, signal) {
