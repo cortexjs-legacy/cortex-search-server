@@ -65,7 +65,7 @@ html(ng-app="app")
                 .tags
                     .title Keywords
                     div
-                        .tag(ng-repeat="keyword in pkg.keywords") {{keyword}}
+                        a.tag(href="#" ng-repeat="keyword in pkg.keywords") {{keyword}}
                 .maintainers
                     .title Maintainers
                     .avatars
