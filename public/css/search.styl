@@ -40,9 +40,6 @@ img.avatar-sm
 
 .icon-like,
 .icon-download,
-.icon-bug,
-.icon-home,
-.icon-repo
     height: 22px
     width: 22px
 
@@ -91,7 +88,13 @@ img.avatar-sm
             background-image: url("/img/icon-close.png")
             top: 6px
             right: 6px
-
+    .msg
+        animation: fadeIn 0.5s
+        font-size: 23px
+        color: white
+        position: absolute
+        margin-left: 20px
+        margin-top: 12px
 
 mod-padding-right=15px
 mod-padding-top=15px
@@ -129,7 +132,7 @@ $meta-item-sm
 
 .mods
     position:relative
-    box-shadow:4px 0px 6px -6px black
+    box-shadow:5px 0px 6px -6px black
     width: mods_width
     background-color: #f5f5f5
     float: left
@@ -138,6 +141,7 @@ $meta-item-sm
     .mod-selected
         background-color:#E8E8E8    
     .mod
+        animation: fadeInDown 0.6s
         border-bottom: 1px solid #d8d8d8
         padding: mod-padding-top mod-padding-right 30px 24px
         position: relative
@@ -191,6 +195,8 @@ $meta-item-sm
                 color: #333
             .info
                 font-size:16px
+                .name
+                    color : #3aa4d9
                 .date
                     margin-left:10px
 
@@ -210,6 +216,11 @@ $section
     padding: 12px 0px
     margin: 0 20px
     clear:both
+$icon
+    width: 22px
+    height: 22px
+    background-size: cover
+    position: absolute
 
 .metas
     font-size:14px
@@ -226,10 +237,21 @@ $section
         @extend $section      
         height:20px
         .title
-            padding-left: 28px;
-            @extend $meta-item
-            &:before
-                background-image: url("/img/icon-repo.png")
+            padding-left: 28px
+        $icon
+            width: 22px
+            height: 22px
+            background-size: cover
+            position: absolute
+        .icon-repo
+            @extend $icon
+            background-image: url("/img/icon-repo.png")
+        .icon-home           
+            @extend $icon
+            background-image: url("/img/icon-home.png")
+        .icon-bug
+            @extend $icon
+            background-image: url("/img/icon-bug.png")
         .pull-right
             width:70%
             white-space: nowrap;
