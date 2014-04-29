@@ -20,12 +20,12 @@ npm run start
 
 ## Rest APIs
 
-### /rest/package/:name/[:version]
+### /-/package/:name/[:version]
 
 Get package information of a package with name and version, version is optional.
 
 
-### /rest/search
+### /-/search
 
 Search packages with criterias.
 
