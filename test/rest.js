@@ -8,7 +8,7 @@ describe('rest.js', function() {
 
         it('package missing', function(done) {
             request(app)
-                .get('/rest/package/nopackage')
+                .get('/-/package/nopackage')
                 .expect(404, function(err, res) {
                     done(err);
                 });
@@ -16,13 +16,13 @@ describe('rest.js', function() {
 
         it('version missing', function(done) {
             request(app)
-                .get('/rest/package/align/a3.f22.3')
+                .get('/-/package/align/a3.f22.3')
                 .expect(400, done);
         });
 
         it('with version', function(done) {
             request(app)
-                .get('/rest/package/align/1.0.0')
+                .get('/-/package/align/1.0.0')
                 .expect(200, function(err, res) {
                     assert.equal(res.body.version, "1.0.0");
                     done(err);
@@ -31,7 +31,7 @@ describe('rest.js', function() {
 
         it('with name', function(done) {
             request(app)
-                .get('/rest/package/cortex')
+                .get('/-/package/cortex')
                 .expect('Content-Type', /json/)
                 .expect(200, function(err, res) {
                     assert.equal(res.body.name, "cortex");
@@ -44,7 +44,7 @@ describe('rest.js', function() {
     describe('search', function() {
         it('with keyword', function(done) {
             request(app)
-                .get('/rest/search?keyword=web&limit=20')
+                .get('/-/search?keyword=web&limit=20')
                 .expect('Content-Type', /json/)
                 .expect(200, function(err, res) {
                     assert(res.body && res.body.length);
@@ -55,7 +55,7 @@ describe('rest.js', function() {
 
         it('with author', function(done) {
             request(app)
-                .get('/rest/search?author=cortex-admin&skip=1&limit=10')
+                .get('/-/search?author=cortex-admin&skip=1&limit=10')
                 .expect('Content-Type', /json/)
                 .expect(200, function(err, res) {
                     assert(res && res.body && res.body.length);
@@ -66,7 +66,7 @@ describe('rest.js', function() {
 
         it('with name', function(done) {
             request(app)
-                .get('/rest/search?name=backbone&limit=20')
+                .get('/-/search?name=backbone&limit=20')
                 .expect(200, function(err, res) {
                     assert(res.body);
                     assert.equal(res.body.length, 1);
@@ -76,7 +76,7 @@ describe('rest.js', function() {
 
         it('with q', function(done) {
             request(app)
-                .get('/rest/search?q=app+cortex&limit=30')
+                .get('/-/search?q=app+cortex&limit=30')
                 .expect('Content-Type', /json/)
                 .expect(200, function(err, res) {
                     done(err);
@@ -85,7 +85,7 @@ describe('rest.js', function() {
 
         it('with mix', function(done) {
             request(app)
-                .get('/rest/search?name=backbone&keyword=web&limit=10')
+                .get('/-/search?name=backbone&keyword=web&limit=10')
                 .expect(200, function(err, res) {
                     assert(res.body.length);
                     done(err);
@@ -96,7 +96,7 @@ describe('rest.js', function() {
 
     it('index', function(done) {
         request(app)
-            .get('/rest')
+            .get('/-')
             .expect(404, function(err) {
                 done(err);
             });
