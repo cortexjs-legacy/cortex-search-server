@@ -5,6 +5,7 @@ mixin js(path)
 
 mixin mod
     .mod(ng-repeat="package in pkgs" ng-click="viewDetail(package)" ng-class="{'mod-selected': pkg.name==package.name}")
+        .mask
         .name {{package.name}}
         //- .meta
         //-     .star 200
@@ -65,8 +66,12 @@ html(ng-app="app")
                 .tags
                     .title Keywords
                     div
-                        a.tag(href="#" ng-repeat="keyword in pkg.keywords") {{keyword}}
-                .maintainers
+                        a.tag(href="javascript:;" ng-repeat="keyword in pkg.keywords" ng-click="searchByKeyword(keyword)") {{keyword}}
+                .tags
+                    .title Dependencies
+                    div
+                        a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
+                .maintainers.maintainers
                     .title Maintainers
                     .avatars
                         img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{maintainer.avatarMedium}}")

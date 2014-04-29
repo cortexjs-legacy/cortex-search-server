@@ -13,7 +13,7 @@ app.directive('ngEnter', function() {
 	};
 });
 
-function Controller($scope, $http, $timeout, $location, $anchorScroll) {
+function Controller($scope, $http, $timeout) {
 
 	$scope.clearInput = function() {
 		$scope.searchInput = '';
@@ -22,14 +22,15 @@ function Controller($scope, $http, $timeout, $location, $anchorScroll) {
 	$scope.search = function() {
 		var input = $scope.searchInput;
 		if (input.indexOf(':') == -1) {
-			searchByKeyWord(input);
+			$scope.searchByName(input);
 		} else {
-			searchByCriteria(input);
+			$scope.searchByCriteria(input);
 		}
 
 	}
 
-	function searchByKeyWord(input) {
+	$scope.searchByName=function(input) {
+		$scope.searchInput=input
 		var queryString = toQueryString({
 			q: input
 		})
@@ -48,9 +49,8 @@ function Controller($scope, $http, $timeout, $location, $anchorScroll) {
 
 	}
 
-	searchByKeyWord('app')
-
-	function searchByCriteria(input) {
+	$scope.searchByCriteria=function(input) {
+		$scope.searchInput=input
 		var queryObject = {}
 		var field = input.split('\|');
 		for (var i = field.length - 1; i >= 0; i--) {
@@ -72,6 +72,11 @@ function Controller($scope, $http, $timeout, $location, $anchorScroll) {
 			})
 	}
 
+	$scope.searchByKeyword=function(keyword){
+		$scope.searchInput='keyword:'+keyword
+		$scope.searchByCriteria($scope.searchInput);
+	}
+
 	$scope.marked = function(rawText) {
 		var result;
 		try{
@@ -86,16 +91,23 @@ function Controller($scope, $http, $timeout, $location, $anchorScroll) {
 		$http.get('/rest/package/' + pkg.name)
 			.success(function(data) {
 				$scope.pkg = data;
-				goToTop();
+				history.pushState(null,pkg.name,'/package/'+pkg.name)
 			}).error(function(data) {
 				showMsg('Opps, unknown error');
 			})
 	}
 
-	function goToTop() {
-		$location.hash('top');
-		$anchorScroll();
+	window.onpopstate = function(event){
+		init();
 	}
+
+	function init(){
+		var result=/.+\/package\/(.+)/.exec(location.href);
+		var packageName=result && result.length>1 && result[1] || 'app'
+		$scope.searchByName(packageName);
+	}
+
+	init();
 
 	function showMsg(msg) {
 		$scope.msg = msg;
