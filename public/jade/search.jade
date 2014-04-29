@@ -68,6 +68,10 @@ html(ng-app="app")
                     div
                         a.tag(href="javascript:;" ng-repeat="keyword in pkg.keywords" ng-click="searchByKeyword(keyword)") {{keyword}}
                 .tags
+                    .title Dependents
+                    div
+                        a.tag(href="javascript:;" ng-repeat="dependent in pkg.dependents" ng-click="searchByName(dependent.name)") {{dependent.name}}
+                .tags
                     .title Dependencies
                     div
                         a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}

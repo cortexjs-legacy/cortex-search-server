@@ -15,6 +15,8 @@ app.directive('ngEnter', function() {
 
 function Controller($scope, $http, $timeout) {
 
+	var isHistory = false;
+
 	$scope.clearInput = function() {
 		$scope.searchInput = '';
 	}
@@ -29,8 +31,8 @@ function Controller($scope, $http, $timeout) {
 
 	}
 
-	$scope.searchByName=function(input) {
-		$scope.searchInput=input
+	$scope.searchByName = function(input) {
+		$scope.searchInput = input
 		var queryString = toQueryString({
 			q: input
 		})
@@ -40,7 +42,7 @@ function Controller($scope, $http, $timeout) {
 				if (data.length > 0) {
 					$scope.viewDetail(data[0])
 				} else {
-					$scope.pkg=null;
+					$scope.pkg = null;
 					showMsg('No package found');
 				}
 			}).error(function(data) {
@@ -49,8 +51,8 @@ function Controller($scope, $http, $timeout) {
 
 	}
 
-	$scope.searchByCriteria=function(input) {
-		$scope.searchInput=input
+	$scope.searchByCriteria = function(input) {
+		$scope.searchInput = input
 		var queryObject = {}
 		var field = input.split('\|');
 		for (var i = field.length - 1; i >= 0; i--) {
@@ -63,8 +65,8 @@ function Controller($scope, $http, $timeout) {
 				$scope.pkgs = data;
 				if (data.length > 0) {
 					$scope.viewDetail(data[0])
-				}else {
-					$scope.pkg=null;
+				} else {
+					$scope.pkg = null;
 					showMsg('No package found');
 				}
 			}).error(function(data) {
@@ -72,17 +74,16 @@ function Controller($scope, $http, $timeout) {
 			})
 	}
 
-	$scope.searchByKeyword=function(keyword){
-		$scope.searchInput='keyword:'+keyword
-		$scope.searchByCriteria($scope.searchInput);
+	$scope.searchByKeyword = function(keyword) {
+		$scope.searchByCriteria('keyword:' + keyword);
 	}
 
 	$scope.marked = function(rawText) {
 		var result;
-		try{
-			result= marked(rawText);
+		try {
+			result = marked(rawText);
 			return result;
-		}catch(e){
+		} catch (e) {
 			return result;
 		}
 	}
@@ -91,19 +92,22 @@ function Controller($scope, $http, $timeout) {
 		$http.get('/rest/package/' + pkg.name)
 			.success(function(data) {
 				$scope.pkg = data;
-				history.pushState(null,pkg.name,'/package/'+pkg.name)
+				if (!isHistory) {
+					history.pushState(null, pkg.name, '/package/' + pkg.name)
+				}
 			}).error(function(data) {
 				showMsg('Opps, unknown error');
 			})
 	}
 
-	window.onpopstate = function(event){
+	window.onpopstate = function(event) {
+		isHistory = true;
 		init();
 	}
 
-	function init(){
-		var result=/.+\/package\/(.+)/.exec(location.href);
-		var packageName=result && result.length>1 && result[1] || 'app'
+	function init() {
+		var result = /.+\/package\/(.+)/.exec(location.href);
+		var packageName = result && result.length > 1 && result[1] || 'app'
 		$scope.searchByName(packageName);
 	}
 
