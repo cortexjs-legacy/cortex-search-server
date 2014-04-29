@@ -36,7 +36,7 @@ function Controller($scope, $http, $timeout) {
 		var queryString = toQueryString({
 			q: input
 		})
-		$http.get('/rest/search?' + queryString)
+		$http.get('/-/search?' + queryString)
 			.success(function(data) {
 				$scope.pkgs = data;
 				if (data.length > 0) {
@@ -60,7 +60,7 @@ function Controller($scope, $http, $timeout) {
 			queryObject[query[0]] = query[1]
 		};
 
-		$http.get('/rest/search?' + toQueryString(queryObject))
+		$http.get('/-/search?' + toQueryString(queryObject))
 			.success(function(data) {
 				$scope.pkgs = data;
 				if (data.length > 0) {
@@ -89,7 +89,7 @@ function Controller($scope, $http, $timeout) {
 	}
 
 	$scope.viewDetail = function(pkg) {
-		$http.get('/rest/package/' + pkg.name)
+		$http.get('/-/package/' + pkg.name)
 			.success(function(data) {
 				$scope.pkg = data;
 				if (!isHistory) {
