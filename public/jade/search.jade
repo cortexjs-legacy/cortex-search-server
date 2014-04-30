@@ -43,42 +43,42 @@ html(ng-app="app")
         .content(ng-show="pkg")
             .mods
                 +mod
-            .detail
-                div(id="top")
+            article
                 .block.header
-                    .author
-                        img.avatar(ng-src="{{pkg.author.avatarMedium}}")
-                    .desc
-                        h1.title 
-                            {{pkg.name}} 
-                            select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
-                        .info by &nbsp
-                            span.name {{pkg.author.name}} 
-                            span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
-                .block.intro
-                    |{{pkg.description}} 
-                .block.readme
-                    .caption
-                        span.text README
-                    .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
-            .metas
-                .top 
-                +meta("Repo","repo","{{pkg.repository.url}}")              
-                +meta("Home","home","{{pkg.homepage}}")              
-                +meta("Issues","bug","{{pkg.bugs.url}}")              
-                .tags
-                    .title Keywords
-                    div
-                        a.tag(href="javascript:;" ng-repeat="keyword in pkg.keywords" ng-click="searchByKeyword(keyword)") {{keyword}}
-                .tags
-                    .title Dependents
-                    div
-                        a.tag(href="javascript:;" ng-repeat="dependent in pkg.dependents" ng-click="searchByName(dependent.name)") {{dependent.name}}
-                .tags
-                    .title Dependencies
-                    div
-                        a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
-                .maintainers.maintainers
-                    .title Maintainers
-                    .avatars
-                        img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{maintainer.avatarMedium}}")
+                    .main
+                      .author
+                          img.avatar(ng-src="{{pkg.author.avatarMedium}}")
+                      .desc
+                          h1.title 
+                              {{pkg.name}} 
+                              select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
+                          .info by &nbsp
+                              span.name {{pkg.author.name}} 
+                              span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
+                    .intro {{pkg.description}}
+                .detail
+                     
+                    .block.readme
+                        .caption
+                            span.text README
+                        .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
+                .metas
+                    +meta("Repo","repo","{{pkg.repository.url}}")              
+                    +meta("Home","home","{{pkg.homepage}}")              
+                    +meta("Issues","bug","{{pkg.bugs.url}}")              
+                    .tags
+                        .title Keywords
+                        div
+                            a.tag(href="javascript:;" ng-repeat="keyword in pkg.keywords" ng-click="searchByKeyword(keyword)") {{keyword}}
+                    .tags
+                        .title Dependents
+                        div
+                            a.tag(href="javascript:;" ng-repeat="dependent in pkg.dependents" ng-click="searchByName(dependent.name)") {{dependent.name}}
+                    .tags
+                        .title Dependencies
+                        div
+                            a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
+                    .maintainers.maintainers
+                        .title Maintainers
+                        .avatars
+                            img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{maintainer.avatarMedium}}")
