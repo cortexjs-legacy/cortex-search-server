@@ -78,6 +78,10 @@ function Controller($scope, $http, $timeout) {
 		$scope.searchByCriteria('keyword:' + keyword);
 	}
 
+	$scope.searchByName = function(name) {
+		$scope.searchByCriteria('name:' + name);
+	}
+
 	$scope.marked = function(rawText) {
 		var result;
 		try {
@@ -114,7 +118,7 @@ function Controller($scope, $http, $timeout) {
 		var result = /.+\/package\/(.+)/.exec(location.href);
 		var packageName = result && result.length > 1 && result[1];
 		if(packageName){
-			$scope.searchByCriteria('name:'+packageName);
+			$scope.searchByName(packageName);
 		}else{
 			$scope.searchByWords('app');
 		}
