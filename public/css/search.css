@@ -17,7 +17,7 @@ li {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", arial, sans-serif;
-  font-weight: 200;
+  font-weight: 300;
 }
 a {
   color: #3aa4d9;
@@ -164,8 +164,9 @@ height: 22px {
   animation: fadeInDown 0.6s;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #d8d8d8;
-  padding: 15px 15px 30px 24px;
+  padding: 15px 15px 20px 24px;
   position: relative;
+  text-shadow: 0 1px 0 #fff;
 }
 .mods .mod .name {
   font-size: 22px;
@@ -228,8 +229,19 @@ height: 22px {
   clear: both;
 }
 .detail .header {
+  zoom: 1;
   border-bottom: solid 1px #ccc;
-  height: 91px;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  padding-bottom: 15px;
+}
+.detail .header:before,
+.detail .header:after {
+  content: "";
+  display: table;
+}
+.detail .header:after {
+  clear: both;
 }
 .detail .header .author {
   float: left;
@@ -257,8 +269,7 @@ height: 22px {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: #f5f5f5 url("/img/select-arrow.png") no-repeat calc(100% - 8px) center;
-  padding: 6px;
-  padding-right: 20px;
+  padding: 5px 20px 5px 5px;
   font-size: 15px;
   color: #444;
   vertical-align: middle;
@@ -281,12 +292,19 @@ height: 22px {
   font-size: 16px;
   margin-bottom: 40px;
 }
-.detail .readme .title {
+.detail .readme .caption {
   font-size: 18px;
   color: #666;
   font-weight: bolder;
-  padding: 5px 0px;
-  border-bottom: solid 1px #bfbcbc;
+  border-bottom: solid 1px #ccc;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+.detail .readme .caption .text {
+  background-color: #f5f5f5;
+  border-top: 2px solid #ccc;
+  display: inline-block;
+  padding: 0 10px;
 }
 .metas .meta,
 .metas .tags,
@@ -322,7 +340,16 @@ height: 22px {
   height: 67px;
 }
 .metas .meta {
-  height: 20px;
+  zoom: 1;
+  padding-bottom: 5px;
+}
+.metas .meta:before,
+.metas .meta:after {
+  content: "";
+  display: table;
+}
+.metas .meta:after {
+  clear: both;
 }
 .metas .meta .title {
   padding-left: 28px;

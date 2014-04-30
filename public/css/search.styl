@@ -4,8 +4,9 @@ meta_width= 23%
 font_color=#dadada
 info_color=#a6a6a6
 drop_shadow=0 1px 3px rgba(0, 0, 0, .3)
-carve_shadow=inset 0 1px 1px rgba(0, 0, 0, .3), 0 1px 0 white
-light_carve_shadow=0 1px 0 white
+inset_carve_shadow=inset 0 1px 1px rgba(0, 0, 0, .3), 0 1px 0 white
+carve_shadow=0 1px 0 white
+light_carve_shadow=0 1px 0 rgba(255, 255, 255, .5)
 layout_shadow=0 0 8px rgba(0, 0, 0, .15)
 
 html,body
@@ -17,7 +18,7 @@ body,h1,h2,h3,h4,h5,h6,p,ul,li
     margin: 0
     padding: 0
     font-family: "Helvetica Neue", arial, sans-serif
-    font-weight: 200
+    font-weight: 300
 
 a 
     color : #3aa4d9
@@ -153,8 +154,9 @@ $meta-item-sm
         animation: fadeInDown 0.6s
         border-top: 1px solid white
         border-bottom: 1px solid #d8d8d8
-        padding: mod-padding-top mod-padding-right 30px 24px
+        padding: mod-padding-top mod-padding-right 20px 24px
         position: relative
+        text-shadow: carve_shadow
         .name
             font-size: 22px
             color: #333
@@ -209,8 +211,10 @@ $meta-item-sm
         margin:20px 30px
         clear: both
     .header
+        clearfix()
         border-bottom: solid 1px #cccccc;
-        height: 91px;
+        box-shadow: light_carve_shadow
+        padding-bottom: 15px
         .author
             float:left
         .desc
@@ -228,19 +232,18 @@ $meta-item-sm
               .version-select
                   border: 1px solid #bbb
                   border-radius: 2px
-                  box-shadow: light_carve_shadow
+                  box-shadow: carve_shadow
                   outline: none
                   -webkit-appearance: none
                   -moz-appearance: none
                   background: #f5f5f5 url("/img/select-arrow.png") no-repeat calc(100% - 8px) center;
-                  padding: 6px
-                  padding-right: 20px
+                  padding: 5px 20px 5px 5px
                   font-size: 15px
                   color: #444
                   vertical-align: middle
 
                   &:active
-                      box-shadow: carve_shadow
+                      box-shadow: inset_carve_shadow
 
                 
             .info
@@ -255,12 +258,17 @@ $meta-item-sm
         font-size:16px
         margin-bottom:40px
     .readme
-        .title
+        .caption
             font-size: 18px
             color:#666
             font-weight: bolder
-            padding:5px 0px
-            border-bottom: solid 1px #BFBCBC
+            border-bottom: solid 1px #ccc
+            box-shadow: light_carve_shadow
+            .text
+               background-color: #f5f5f5
+               border-top: 2px solid #ccc
+               display: inline-block
+               padding: 0 10px
 
 $section
     border-bottom: solid 1px #dadada
@@ -286,8 +294,9 @@ $icon
     .top
         height:67px
     .meta 
-        @extend $section      
-        height:20px
+        @extend $section
+        clearfix();
+        padding-bottom: 5px
         .title
             padding-left: 28px
         $icon
@@ -329,7 +338,7 @@ $icon
             &:hover
                 background-color: info_color
                 color: white
-                box-shadow: carve_shadow
+                box-shadow: inset_carve_shadow
                 text-shadow: 0 1px 0 rgba(0, 0, 0, .4)
 
     .maintainers

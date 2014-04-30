@@ -57,9 +57,10 @@ html(ng-app="app")
                             span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
                 .block.intro
                     |{{pkg.description}} 
-                .block.readme.markdown 
-                    .title README
-                    .content(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
+                .block.readme
+                    .caption
+                        span.text README
+                    .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
             .metas
                 .top 
                 +meta("Repo","repo","{{pkg.repository.url}}")              
