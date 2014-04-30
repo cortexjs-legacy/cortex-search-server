@@ -1,16 +1,12 @@
-mods_width= 23%
 font_color=#dadada
 info_color=#a6a6a6
 drop_shadow=0 1px 3px rgba(0, 0, 0, .3)
 inset_carve_shadow=inset 0 1px 1px rgba(0, 0, 0, .3), 0 1px 0 white
 carve_shadow=0 1px 0 white
 light_carve_shadow=0 1px 0 rgba(255, 255, 255, .5)
-layout_shadow=0 0 8px rgba(0, 0, 0, .15)
 
 html,body
-    height:100%
     line-height:1.5
-    background-color:#E8E8E8
 
 body,h1,h2,h3,h4,h5,h6,p,ul,li
     margin: 0
@@ -49,15 +45,6 @@ img.avatar-sm
     width: 22px
 
 .head
-    background-color: #000
-    background-image: url("/img/header-bg.jpg")
-    background-position: right top
-    background-repeat: no-repeat
-    position:relative
-    height: 60px
-    padding: 10px 15px
-    z-index:10
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .25);   
     .logo
         position: absolute
         float: left
@@ -75,7 +62,7 @@ img.avatar-sm
             position: absolute
             top: 6px
             left: 6px
-            background-image: url("/img/icon-search.png")
+            background-image: url("../img/icon-search.png")
         .input
             background-color: #e6e6e7
             float: left
@@ -90,7 +77,7 @@ img.avatar-sm
             padding: 10px 0 10px 0
         .icon-close
             position: absolute
-            background-image: url("/img/icon-close.png")
+            background-image: url("../img/icon-close.png")
             top: 7px
             right: 6px
             opacity: .8
@@ -102,8 +89,6 @@ img.avatar-sm
         margin-left: 20px
         margin-top: 12px
 
-mod-padding-right=15px
-mod-padding-top=15px
 $meta-item
     position: relative
     padding-left: 20px
@@ -132,63 +117,64 @@ $meta-item-sm
         display: block
         background-size: cover
 
-.content
-    overflow : hidden
-    height: calc(100% - 80px)
+mod_color_shadow  = #d8d8d9
+mod_color_glow    = white
+mod_padding_right = 15px
+mod_padding_top   = 15px
+mod_selected_bg   = #e8e8e9
 
-.mods
-    background-image: url("../img/noise-bg.png")
-
-.mods
-    .mod
-        animation: fadeInDown 0.6s
-        border-top: 1px solid white
-        border-bottom: 1px solid #d8d8d8
-        padding: mod-padding-top mod-padding-right 20px 24px
-        position: relative
-        text-shadow: carve_shadow
-        .name
-            font-size: 22px
-            color: #333
-        .meta
-            font-size: 14px
-            color: info_color
-            position: absolute
-            right: mod-padding-right
-            top: mod-padding-top
-            padding:5px
-            .star
-                padding-left: 20px;
-                @extend $meta-item-sm
-                &:before
-                    background-image: url("/img/icon-like.png")
-            .download
-                margin-left:20px
-                padding-left: 20px;
-                @extend $meta-item-sm
-                &:before
-                    background-image: url("/img/icon-like.png")
-        .desc
-            font-size: 14px
-            margin-top: 5px
-            color: #666
-
-        &:first-child
-            border-top: 0
-        &:last-child
-            border-bottom: 0
-            
-
-    .mod-selected
-        background-color:#E8E8E8 
-        border-color: #e8e8e8
+.list
+  .mod
+    animation: fadeInDown 0.6s
+    border-top: 1px solid color_mod_glow
+    border-bottom: 1px solid color_mod_border
+    padding: mod_padding_top mod_padding_right 20px 24px
+    position: relative
+    text-shadow: carve_shadow
+    .name
+      font-size: 22px
+      color: #333
+    .meta
+      font-size: 14px
+      color: info_color
+      position: absolute
+      right: mod_padding_right
+      top: mod_padding_top
+      padding:5px
+      .star
+        padding-left: 20px;
+        @extend $meta-item-sm
         &:before
-            background-color: #e8e8e8
-            width: 10px
-            height: 100%
-            position: absolute
-            right: -10px
-            top: 0
+          background-image: url("../img/icon-like.png")
+      .download
+        margin-left:20px
+        padding-left: 20px;
+        @extend $meta-item-sm
+        &:before
+          background-image: url("../img/icon-like.png")
+    .desc
+      font-size: 14px
+      margin-top: 5px
+      color: #666
+    &:first-child
+      border-top-color: 0
+    &:last-child
+      border-bottom: 0
+      &.mod-selected
+        box-shadow: 0 1px 0 mod_color_glow
+
+  .mod-selected
+    position: relative
+    top: -1px
+    padding-top: 16px
+    margin-bottom: -1px
+    background-color: mod_selected_bg
+    border-top-color: mod_color_shadow
+    border-bottom-color: mod_selected_bg
+    border-left: 3px solid mod_color_shadow
+    padding-left: 21px
+    &:first-child
+      border-top-color: mod_color_shadow
 
 .block
   margin:20px 30px
@@ -221,7 +207,7 @@ $meta-item-sm
           outline: none
           -webkit-appearance: none
           -moz-appearance: none
-          background: #f5f5f5 url("/img/select-arrow.png") no-repeat calc(100% - 8px) center;
+          background: #f5f5f5 url("../img/select-arrow.png") no-repeat calc(100% - 8px) center;
           padding: 5px 20px 5px 5px
           font-size: 15px
           color: #444
@@ -283,13 +269,13 @@ $icon
             position: absolute
         .icon-repo
             @extend $icon
-            background-image: url("/img/icon-repo.png")
+            background-image: url("../img/icon-repo.png")
         .icon-home           
             @extend $icon
-            background-image: url("/img/icon-home.png")
+            background-image: url("../img/icon-home.png")
         .icon-bug
             @extend $icon
-            background-image: url("/img/icon-bug.png")
+            background-image: url("../img/icon-bug.png")
         .pull-right
             width:70%
             white-space: nowrap;
@@ -324,49 +310,5 @@ $icon
         img
             margin-right:15px
             margin-top:15px
-
-
-/* layout ----------------------------------------------- */
-
-
-article_width = 77%
-detail_proportion = 70%
-meta_proportion = 30%
-
-.mods
-  position:relative
-  z-index: 1
-  box-shadow:layout_shadow
-  width: mods_width
-  background-color: #f5f5f5
-  float: left
-  height:100%
-  overflow: scroll
-
-article
-  width: article_width
-  height: 100%
-  overflow: scroll
-  position: relative
-  &:before
-    content: ""
-    width: meta_proportion
-    min-height: 100%
-    background-image: url("../img/noise-bg.png")
-    display: block
-    margin: 0
-    position: absolute
-    right: 0
-    box-shadow: layout_shadow
-
-.detail
-  width: detail_proportion
-  float:left
-  clear:left
-  color: #666
-
-.metas
-  width: meta_proportion
-  float: left
 
 
