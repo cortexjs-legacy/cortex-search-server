@@ -120,9 +120,14 @@ function Controller($scope, $http, $timeout) {
 		if(packageName){
 			$scope.searchByName(packageName);
 		}else{
-			$scope.searchByWords('app');
+			$scope.renderHome();
 		}
 	}
+
+  $scope.renderHome = function () {
+    // homepage is coming...
+    $scope.searchByWords('app');
+  };
 
 	init();
 

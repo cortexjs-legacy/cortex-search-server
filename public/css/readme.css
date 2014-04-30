@@ -14,6 +14,14 @@
   left: 0;
   bottom: 0;
 }
+.markdown p a,
+.markdown li a {
+  border-bottom: 1px solid #bcd7e4;
+}
+.markdown p a:hover,
+.markdown li a:hover {
+  border-color: #4183c4;
+}
 .markdown h1,
 .markdown h2,
 .markdown h3,

@@ -33,7 +33,7 @@ html(ng-app="app")
         +js("/js/search.js")
     body(ng-controller="Controller")
         .head
-            .logo
+            .logo(ng-click="renderHome()")
                 img(src="/img/logo.png")
             .search
                 i.icon-search

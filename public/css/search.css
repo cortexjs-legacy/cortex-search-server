@@ -284,6 +284,7 @@ height: 22px {
 .detail .header .desc .info .name {
   color: #3aa4d9;
   font-weight: bolder;
+  text-transform: uppercase;
 }
 .detail .header .desc .info .date {
   margin-left: 10px;
