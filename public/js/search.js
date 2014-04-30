@@ -56,7 +56,10 @@ function Controller($scope, $http, $timeout) {
 		var queryObject = {};
 		var field = input.split('\|');
 		for (var i = field.length - 1; i >= 0; i--) {
-			var query = field[i].split(':'); //['keyword':'ajax']
+			var query = field[i].split(':').map(function (slice) {
+        return slice.trim();
+      }); 
+      //['keyword':'ajax']
 			queryObject[query[0]] = query[1];
 		};
 
