@@ -122,12 +122,13 @@ mod_color_glow    = white
 mod_padding_right = 15px
 mod_padding_top   = 15px
 mod_selected_bg   = #e8e8e9
+mod_bg            = #f5f5f6
 
 .list
   .mod
     animation: fadeInDown 0.6s
-    border-top: 1px solid color_mod_glow
-    border-bottom: 1px solid color_mod_border
+    border-top: 1px solid mod_color_glow
+    border-bottom: 1px solid mod_color_shadow
     padding: mod_padding_top mod_padding_right 20px 24px
     position: relative
     text-shadow: carve_shadow
@@ -157,9 +158,9 @@ mod_selected_bg   = #e8e8e9
       margin-top: 5px
       color: #666
     &:first-child
-      border-top-color: 0
+      border-top-color: mod_bg
     &:last-child
-      border-bottom: 0
+      border-bottom-color: mod_bg
       &.mod-selected
         box-shadow: 0 1px 0 mod_color_glow
 
@@ -175,6 +176,8 @@ mod_selected_bg   = #e8e8e9
     padding-left: 21px
     &:first-child
       border-top-color: mod_color_shadow
+    &:last-child
+      border-bottom-color: mod_selected_bg
 
 .block
   margin:20px 30px

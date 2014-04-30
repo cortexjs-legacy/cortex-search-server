@@ -130,8 +130,8 @@ height: 22px {
   -o-animation: fadeInDown 0.6s;
   -ms-animation: fadeInDown 0.6s;
   animation: fadeInDown 0.6s;
-  border-top: 1px solid color_mod_glow;
-  border-bottom: 1px solid color_mod_border;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #d8d8d9;
   padding: 15px 15px 20px 24px;
   position: relative;
   text-shadow: 0 1px 0 #fff;
@@ -167,10 +167,10 @@ height: 22px {
   color: #666;
 }
 .list .mod:first-child {
-  border-top-color: 0;
+  border-top-color: #f5f5f6;
 }
 .list .mod:last-child {
-  border-bottom: 0;
+  border-bottom-color: #f5f5f6;
 }
 .list .mod:last-child.mod-selected {
   -webkit-box-shadow: 0 1px 0 #fff;
@@ -189,6 +189,9 @@ height: 22px {
 }
 .list .mod-selected:first-child {
   border-top-color: #d8d8d9;
+}
+.list .mod-selected:last-child {
+  border-bottom-color: #e8e8e9;
 }
 .block {
   margin: 20px 30px;
