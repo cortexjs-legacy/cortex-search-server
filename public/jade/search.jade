@@ -49,14 +49,15 @@ html(ng-app="app")
                     .author
                         img.avatar(ng-src="{{pkg.author.avatarMedium}}")
                     .desc
-                        .title {{pkg.name}} 
-                            select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
+                        h1.title 
+                            {{pkg.name}} 
+                            select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
                         .info by &nbsp
                             span.name {{pkg.author.name}} 
                             span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
                 .block.intro
                     |{{pkg.description}} 
-                .block.readme 
+                .block.readme.markdown 
                     .title README
                     .content(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
             .metas

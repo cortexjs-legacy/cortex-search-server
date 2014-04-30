@@ -5,6 +5,7 @@ font_color=#dadada
 info_color=#a6a6a6
 drop_shadow=0 1px 3px rgba(0, 0, 0, .3)
 carve_shadow=inset 0 1px 1px rgba(0, 0, 0, .3), 0 1px 0 white
+light_carve_shadow=0 1px 0 white
 layout_shadow=0 0 8px rgba(0, 0, 0, .15)
 
 html,body
@@ -24,15 +25,6 @@ a
 
 li
     list-style-type: none
-
-select 
-    border: 1px solid #bababa 
-    -webkit-appearance: none
-    -moz-appearance: none
-    background: #e8e8e8 url("/img/select-arrow.png") no-repeat 90% center;
-    padding: 6px
-    width:120px
-    vertical-align:middle
 
 img.avatar
     width: 60px
@@ -224,12 +216,33 @@ $meta-item-sm
         .desc
             float:left
             margin-left:20px
-            .title
-                font-size: 35px
-                font-weight: 500
-                line-height: 35px
-                color: #333
-                margin-bottom: 3px
+            h1.title
+              margin-bottom: 3px
+              line-height: 35px
+              font-size: 35px
+              font-weight: 500
+              color: #333
+              display: inline-block
+              margin-right: 10px
+
+              .version-select
+                  border: 1px solid #bbb
+                  border-radius: 2px
+                  box-shadow: light_carve_shadow
+                  outline: none
+                  -webkit-appearance: none
+                  -moz-appearance: none
+                  background: #f5f5f5 url("/img/select-arrow.png") no-repeat calc(100% - 8px) center;
+                  padding: 6px
+                  padding-right: 20px
+                  font-size: 15px
+                  color: #444
+                  vertical-align: middle
+
+                  &:active
+                      box-shadow: carve_shadow
+
+                
             .info
                 font-size:14px
                 .name
