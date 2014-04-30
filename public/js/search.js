@@ -112,8 +112,12 @@ function Controller($scope, $http, $timeout) {
 
 	function init() {
 		var result = /.+\/package\/(.+)/.exec(location.href);
-		var packageName = result && result.length > 1 && result[1] || 'app';
-		$scope.searchByCriteria('name:'+packageName);
+		var packageName = result && result.length > 1 && result[1];
+		if(packageName){
+			$scope.searchByCriteria('name:'+packageName);
+		}else{
+			$scope.searchByWords('app');
+		}
 	}
 
 	init();
