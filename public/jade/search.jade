@@ -5,7 +5,7 @@ mixin js(path)
 
 mixin mod
     .mod(ng-repeat="package in pkgs" ng-click="viewDetail(package)" ng-class="{'mod-selected': pkg.name==package.name}")
-        .mask
+        //- .mask
         .name {{package.name}}
         //- .meta
         //-     .star 200
@@ -28,6 +28,7 @@ html(ng-app="app")
         +css("/css/lib/animate.css")
         +css("/css/search.css")
         +css("/css/readme.css")
+        +css("/css/layout.css")
         +js("/js/lib/angular.js")
         +js("/js/lib/marked.js")
         +js("/js/search.js")
@@ -40,8 +41,8 @@ html(ng-app="app")
                 input.input(ng-model="searchInput" ng-enter="search()" placeholder="keyword:ajax|name:jquery|author:ltebean")
                 i.icon-close(ng-show="searchInput" ng-click="clearInput()")
             span.msg(ng-show="msg") {{msg}}
-        .content(ng-show="pkg")
-            .mods
+        .wrap(ng-show="pkg")
+            .list
                 +mod
             article
                 .block.header
@@ -49,8 +50,7 @@ html(ng-app="app")
                       .author
                           img.avatar(ng-src="{{pkg.author.avatarMedium}}")
                       .desc
-                          h1.title 
-                              {{pkg.name}} 
+                          h1.title {{pkg.name}} 
                               select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
                           .info by &nbsp
                               span.name {{pkg.author.name}} 
