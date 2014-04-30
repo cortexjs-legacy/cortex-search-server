@@ -24,18 +24,18 @@ function Controller($scope, $http, $timeout) {
 	$scope.search = function() {
 		var input = $scope.searchInput;
 		if (input.indexOf(':') == -1) {
-			$scope.searchByName(input);
+			$scope.searchByWords(input);
 		} else {
 			$scope.searchByCriteria(input);
 		}
 
 	}
 
-	$scope.searchByName = function(input) {
-		$scope.searchInput = input
+	$scope.searchByWords = function(input) {
+		$scope.searchInput = input;
 		var queryString = toQueryString({
 			q: input
-		})
+		});
 		$http.get('/-/search?' + queryString)
 			.success(function(data) {
 				$scope.pkgs = data;
@@ -52,19 +52,19 @@ function Controller($scope, $http, $timeout) {
 	}
 
 	$scope.searchByCriteria = function(input) {
-		$scope.searchInput = input
-		var queryObject = {}
+		$scope.searchInput = input;
+		var queryObject = {};
 		var field = input.split('\|');
 		for (var i = field.length - 1; i >= 0; i--) {
-			var query = field[i].split(':') //['keyword':'ajax']
-			queryObject[query[0]] = query[1]
+			var query = field[i].split(':'); //['keyword':'ajax']
+			queryObject[query[0]] = query[1];
 		};
 
 		$http.get('/-/search?' + toQueryString(queryObject))
 			.success(function(data) {
 				$scope.pkgs = data;
 				if (data.length > 0) {
-					$scope.viewDetail(data[0])
+					$scope.viewDetail(data[0]);
 				} else {
 					$scope.pkg = null;
 					showMsg('No package found');
@@ -88,16 +88,21 @@ function Controller($scope, $http, $timeout) {
 		}
 	}
 
-	$scope.viewDetail = function(pkg) {
-		$http.get('/-/package/' + pkg.name)
+	$scope.viewDetail = function(pkg,version) {
+		$http.get('/-/package/' + pkg.name + (version?'/'+version:''))
 			.success(function(data) {
 				$scope.pkg = data;
+				$scope.currentVersion=data.version;
 				if (!isHistory) {
 					history.pushState(null, pkg.name, '/package/' + pkg.name)
 				}
 			}).error(function(data) {
 				showMsg('Opps, unknown error');
 			})
+	}
+
+	$scope.viewVersion=function(version){
+		$scope.viewDetail($scope.pkg,version);
 	}
 
 	window.onpopstate = function(event) {
@@ -107,8 +112,8 @@ function Controller($scope, $http, $timeout) {
 
 	function init() {
 		var result = /.+\/package\/(.+)/.exec(location.href);
-		var packageName = result && result.length > 1 && result[1] || 'app'
-		$scope.searchByName(packageName);
+		var packageName = result && result.length > 1 && result[1] || 'app';
+		$scope.searchByCriteria('name:'+packageName);
 	}
 
 	init();

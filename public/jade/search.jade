@@ -49,7 +49,8 @@ html(ng-app="app")
                     .author
                         img.avatar(ng-src="{{pkg.author.avatarMedium}}")
                     .desc
-                        .title {{pkg.name}}
+                        .title {{pkg.name}} 
+                            select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
                         .info by &nbsp
                             span.name {{pkg.author.name}} 
                             span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
