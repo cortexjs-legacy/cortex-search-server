@@ -48,14 +48,16 @@ html(ng-app="app")
       article
         .header
           .main
-            .author
+            .author-avatar
               img.avatar(ng-src="{{pkg.author.avatarMedium}}")
             .desc
               h1.title {{pkg.name}} 
                 select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
-              .info by &nbsp
-                span.name {{pkg.author.name}} 
-                span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
+              .info by
+                span.author-name {{pkg.author.name}}
+            .time
+              span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
+        .detail
           .intro {{pkg.description}}
         .metas
           +meta("Repo","repo","{{pkg.repository.url}}")              
@@ -77,7 +79,7 @@ html(ng-app="app")
             .title Dependencies
             div
               a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
-        .detail 
+        .detail
           .readme
             .caption
               span.text README

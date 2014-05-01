@@ -8,7 +8,8 @@ bg_noise        = url("../img/noise-bg.png")
 .list,
 article,
 .header,
-.detail
+.detail,
+.metas
   position relative
   box-sizing border-box
 
@@ -65,19 +66,20 @@ article
   .header,
   .detail
     padding 20px 30px 0
-    margin-bottom 20px
+
+  .metas
+    padding 0 20px
 
   .header
     width width_detail
   .metas
     width width_meta
     float right
+    margin-top -37px
   .detail
     width width_detail
     padding 20px 30px
-    float right
-
-  
+    float left
 
 @media (max-width: 1000px)
   article
@@ -88,15 +90,18 @@ article
     .detail,
       float none
       width 100%
+    .metas
+      margin-top 0
 
 @media (max-width: 640px)
   .list
     display none
   article
     float none
-    width: 100%
+    width 100%
 
     .header,
-    .detail
-      padding-left: 4%
-      padding-right: 4%
+    .detail,
+    .metas
+      padding-left 4%
+      padding-right 4%
