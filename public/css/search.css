@@ -177,14 +177,13 @@ height: 22px {
   box-shadow: 0 1px 0 #fff;
 }
 .list .mod-selected {
-  position: relative;
   top: -1px;
   padding-top: 16px;
   margin-bottom: -1px;
   background-color: #e8e8e9;
   border-top-color: #d8d8d9;
   border-bottom-color: #e8e8e9;
-  border-left: 3px solid #d8d8d9;
+  border-left: 3px solid #3aa4d9;
   padding-left: 21px;
 }
 .list .mod-selected:first-child {
