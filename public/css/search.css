@@ -36,18 +36,25 @@ img.avatar-sm {
 height 22px {
   width: 22px;
 }
+.head {
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.25);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.25);
+}
 .head .logo {
-  position: absolute;
   float: left;
-  top: 5px;
-  left: 15px;
+  margin-top: 3px;
+  margin-right: 20px;
+  max-width: 20%;
 }
 .head .search {
-  margin-left: 90px;
+  -webkit-box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.3);
+  box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.3);
   margin-top: 10px;
+  margin-right: -100%;
   float: left;
   position: relative;
-  width: 430px;
+  width: 500px;
+  max-width: 70%;
   background-color: #e6e6e7;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -59,7 +66,7 @@ height 22px {
   background-image: url("../img/icon-search.png");
 }
 .head .search .input {
-  background-color: #e6e6e7;
+  background-color: transparent;
   float: left;
   border: none;
   height: 20px;

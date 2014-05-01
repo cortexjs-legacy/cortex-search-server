@@ -35,8 +35,7 @@ html(ng-app="app")
     +js("/js/search.js")
   body(ng-controller="Controller")
     .head
-      .logo(ng-click="renderHome()")
-        img(src="/img/logo.png")
+      img.logo(ng-click="renderHome()" src="/img/logo.png")
       .search
         i.icon-search
         input.input(ng-model="searchInput" ng-enter="search()" placeholder="keyword:ajax|name:jquery|author:ltebean")
