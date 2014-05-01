@@ -3,6 +3,9 @@ article,
 .header,
 .detail {
   position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 body {
   background-image: url("../img/noise-bg.png");
@@ -45,6 +48,11 @@ body {
   z-index: 1;
   padding-top: 20px;
 }
+article .header,
+article .detail {
+  padding: 20px 30px 0;
+  margin-bottom: 20px;
+}
 article {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -68,13 +76,17 @@ article:before {
   -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.2);
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
-.detail {
+article .header {
   width: 70%;
+}
+article .detail {
+  width: 70%;
+  padding: 20px 30px;
   float: left;
   clear: left;
   color: #666;
 }
-.metas {
+article .metas {
   width: 30%;
   float: left;
 }

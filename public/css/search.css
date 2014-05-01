@@ -1,6 +1,16 @@
-html,
 body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
   line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 body,
 h1,
@@ -14,8 +24,6 @@ ul,
 li {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", arial, sans-serif;
-  font-weight: 300;
 }
 a {
   color: #3aa4d9;
@@ -46,7 +54,7 @@ img.avatar-sm {
 }
 .icon-like,
 .icon-download,
-height: 22px {
+height 22px {
   width: 22px;
 }
 .head .logo {
@@ -192,10 +200,6 @@ height: 22px {
 .list .mod-selected:last-child {
   border-bottom-color: #e8e8e9;
 }
-.block {
-  margin: 20px 30px;
-  clear: both;
-}
 .header .main {
   zoom: 1;
   border-bottom: solid 1px #ccc;
@@ -223,7 +227,6 @@ height: 22px {
   margin-bottom: 3px;
   line-height: 35px;
   font-size: 35px;
-  font-weight: 500;
   color: #333;
   display: inline-block;
   margin-right: 10px;
@@ -260,7 +263,6 @@ height: 22px {
 }
 .header .intro {
   font-size: 16px;
-  margin-bottom: 40px;
 }
 .detail .readme .caption {
   font-size: 18px;
@@ -276,14 +278,6 @@ height: 22px {
   display: inline-block;
   padding: 0 10px;
 }
-.metas .meta,
-.metas .tags,
-.metas .maintainers {
-  border-bottom: solid 1px #dadada;
-  padding: 12px 0px;
-  margin: 0 20px;
-  clear: both;
-}
 .metas .meta .icon-repo,
 .metas .meta .icon-home,
 .metas .meta .icon-bug {
@@ -297,6 +291,15 @@ height: 22px {
 .metas {
   font-size: 14px;
   color: #a6a6a6;
+}
+.metas .item {
+  border-bottom: solid 1px #dadada;
+  padding: 12px 0px;
+  margin: 0 20px;
+  clear: both;
+}
+.metas .item:last-child {
+  border-bottom: none;
 }
 .metas .top {
   height: 67px;
@@ -367,9 +370,6 @@ height: 22px {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 1px 0 #fff;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 1px 0 #fff;
   text-shadow: 0 1px 0 rgba(0,0,0,0.4);
-}
-.metas .maintainers {
-  border-bottom: none;
 }
 .metas .maintainers img {
   margin-right: 15px;

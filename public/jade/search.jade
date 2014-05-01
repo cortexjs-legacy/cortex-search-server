@@ -15,7 +15,7 @@ mixin mod
             //- a.url {{package.url}}
 
 mixin meta(title,icon,link)
-    .meta
+    .meta.item
         i(class="icon-" + icon)
         span.title #{title}
         span.pull-right #{link}
@@ -29,6 +29,8 @@ html(ng-app="app")
         +css("/css/search.css")
         +css("/css/readme.css")
         +css("/css/layout.css")
+        //- +css("http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&amp;subset=latin,cyrillic-ext,cyrillic")
+        
         +js("/js/lib/angular.js")
         +js("/js/lib/marked.js")
         +js("/js/search.js")
@@ -45,7 +47,7 @@ html(ng-app="app")
             .list
                 +mod
             article
-                .block.header
+                .header
                     .main
                       .author
                           img.avatar(ng-src="{{pkg.author.avatarMedium}}")
@@ -56,9 +58,8 @@ html(ng-app="app")
                               span.name {{pkg.author.name}} 
                               span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
                     .intro {{pkg.description}}
-                .detail
-                     
-                    .block.readme
+                .detail 
+                    .readme
                         .caption
                             span.text README
                         .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
@@ -66,19 +67,19 @@ html(ng-app="app")
                     +meta("Repo","repo","{{pkg.repository.url}}")              
                     +meta("Home","home","{{pkg.homepage}}")              
                     +meta("Issues","bug","{{pkg.bugs.url}}")              
-                    .tags
+                    .tags.item
                         .title Keywords
                         div
                             a.tag(href="javascript:;" ng-repeat="keyword in pkg.keywords" ng-click="searchByKeyword(keyword)") {{keyword}}
-                    .tags
-                        .title Dependents
-                        div
-                            a.tag(href="javascript:;" ng-repeat="dependent in pkg.dependents" ng-click="searchByName(dependent.name)") {{dependent.name}}
-                    .tags
-                        .title Dependencies
-                        div
-                            a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
-                    .maintainers.maintainers
+                    .maintainers.item
                         .title Maintainers
                         .avatars
                             img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{maintainer.avatarMedium}}")
+                    .tags.item
+                        .title Dependents
+                        div
+                            a.tag(href="javascript:;" ng-repeat="dependent in pkg.dependents" ng-click="searchByName(dependent.name)") {{dependent.name}}
+                    .tags.item
+                        .title Dependencies
+                        div
+                            a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}

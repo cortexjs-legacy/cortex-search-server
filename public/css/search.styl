@@ -6,117 +6,122 @@ carve_shadow=0 1px 0 white
 light_carve_shadow=0 1px 0 rgba(255, 255, 255, .5)
 pallete_blue = #3aa4d9
 
-html,body
-    line-height:1.5
+body
+  font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-size 14px
+  line-height 1.5
+
+h1, h2, h3, h4, h5, h6
+  // font-family "Roboto Slab", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-weight 300
 
 body,h1,h2,h3,h4,h5,h6,p,ul,li
-    margin: 0
-    padding: 0
-    font-family: "Helvetica Neue", arial, sans-serif
-    font-weight: 300
+    margin 0
+    padding 0
 
 a 
-  color : pallete_blue
-  text-decoration: none
+  color pallete_blue
+  text-decoration none
 
 li
-    list-style-type: none
+    list-style-type none
 
 img.avatar
-    width: 60px
-    border-radius: 30px
-    box-shadow: drop_shadow
+    width 60px
+    border-radius 30px
+    box-shadow drop_shadow
 
 
 img.avatar-sm
-    width: 50px
-    border-radius: 25px
-    box-shadow: drop_shadow
+    width 50px
+    border-radius 25px
+    box-shadow drop_shadow
 
 .icon-search,
 .icon-close
-    width: 30px
-    height: 30px
-    background-repeat: no-repeat
+    width 30px
+    height 30px
+    background-repeat no-repeat
 
 
 .icon-like,
 .icon-download,
-    height: 22px
-    width: 22px
+    height 22px
+    width 22px
 
 .head
     .logo
-        position: absolute
-        float: left
-        top: 5px
-        left: 15px
+        position absolute
+        float left
+        top 5px
+        left 15px
     .search
-        margin-left: 90px
-        margin-top: 10px
-        float: left
-        position: relative
-        width: 430px
-        background-color: #e6e6e7
-        border-radius: 5px
+        margin-left 90px
+        margin-top 10px
+        float left
+        position relative
+        width 430px
+        background-color #e6e6e7
+        border-radius 5px
         .icon-search
-            position: absolute
-            top: 6px
-            left: 6px
-            background-image: url("../img/icon-search.png")
+            position absolute
+            top 6px
+            left 6px
+            background-image url("../img/icon-search.png")
         .input
-            background-color: #e6e6e7
-            float: left
-            border: none
-            height: 20px
-            margin-left: 40px
-            width: 360px
-            outline: none
-            font-size: 16px
-            line-height: 20px
-            color: #333
-            padding: 10px 0 10px 0
+            background-color #e6e6e7
+            float left
+            border none
+            height 20px
+            margin-left 40px
+            width 360px
+            outline none
+            font-size 16px
+            line-height 20px
+            color #333
+            padding 10px 0 10px 0
         .icon-close
-            position: absolute
-            background-image: url("../img/icon-close.png")
-            top: 7px
-            right: 6px
-            opacity: .8
+            position absolute
+            background-image url("../img/icon-close.png")
+            top 7px
+            right 6px
+            opacity .8
     .msg
-        animation: fadeIn 0.5s
-        font-size: 23px
-        color: white
-        position: absolute
-        margin-left: 20px
-        margin-top: 12px
+        animation fadeIn 0.5s
+        font-size 23px
+        color white
+        position absolute
+        margin-left 20px
+        margin-top 12px
 
 $meta-item
-    position: relative
-    padding-left: 20px
-    float: left
+    position relative
+    padding-left 20px
+    float left
     &:before
-        position: absolute
-        content: ""
-        width: 22px
-        height: 22px
-        left: 0
-        top: 0
-        display: block
-        background-size: cover
+        position absolute
+        content ""
+        width 22px
+        height 22px
+        left 0
+        top 0
+        display block
+        background-size cover
 
 $meta-item-sm
-    position: relative
-    padding-left: 20px
-    float: left
+    position relative
+    padding-left 20px
+    float left
     &:before
-        position: absolute
-        content: ""
-        width: 16px
-        height: 16px
-        left: 0
-        top: 0
-        display: block
-        background-size: cover
+        position absolute
+        content ""
+        width 16px
+        height 16px
+        left 0
+        top 0
+        display block
+        background-size cover
 
 mod_color_shadow  = #d8d8d9
 mod_color_glow    = white
@@ -127,190 +132,181 @@ mod_bg            = #f5f5f6
 
 .list
   .mod
-    animation: fadeInDown 0.6s
-    border-top: 1px solid mod_color_glow
-    border-bottom: 1px solid mod_color_shadow
-    padding: mod_padding_top mod_padding_right 20px 24px
-    position: relative
-    text-shadow: carve_shadow
+    animation fadeInDown 0.6s
+    border-top 1px solid mod_color_glow
+    border-bottom 1px solid mod_color_shadow
+    padding mod_padding_top mod_padding_right 20px 24px
+    position relative
+    text-shadow carve_shadow
     .name
-      font-size: 22px
-      color: #333
+      font-size 22px
+      color #333
     .meta
-      font-size: 14px
-      color: info_color
-      position: absolute
-      right: mod_padding_right
-      top: mod_padding_top
-      padding:5px
+      font-size 14px
+      color info_color
+      position absolute
+      right mod_padding_right
+      top mod_padding_top
+      padding 5px
       .star
-        padding-left: 20px;
+        padding-left 20px;
         @extend $meta-item-sm
         &:before
-          background-image: url("../img/icon-like.png")
+          background-image url("../img/icon-like.png")
       .download
-        margin-left:20px
-        padding-left: 20px;
+        margin-left 20px
+        padding-left 20px;
         @extend $meta-item-sm
         &:before
-          background-image: url("../img/icon-like.png")
+          background-image url("../img/icon-like.png")
     .desc
-      font-size: 14px
-      margin-top: 5px
-      color: #666
+      font-size 14px
+      margin-top 5px
+      color #666
     &:first-child
-      border-top-color: mod_bg
+      border-top-color mod_bg
     &:last-child
-      border-bottom-color: mod_bg
+      border-bottom-color mod_bg
       &.mod-selected
-        box-shadow: 0 1px 0 mod_color_glow
+        box-shadow 0 1px 0 mod_color_glow
   .mod-selected
-    top: -1px
-    padding-top: 16px
-    margin-bottom: -1px
-    background-color: mod_selected_bg
-    border-top-color: mod_color_shadow
-    border-bottom-color: mod_selected_bg
-    border-left: 3px solid pallete_blue
-    padding-left: 21px
+    top -1px
+    padding-top 16px
+    margin-bottom -1px
+    background-color mod_selected_bg
+    border-top-color mod_color_shadow
+    border-bottom-color mod_selected_bg
+    border-left 3px solid pallete_blue
+    padding-left 21px
     &:first-child
-      border-top-color: mod_color_shadow
+      border-top-color mod_color_shadow
     &:last-child
-      border-bottom-color: mod_selected_bg
-
-.block
-  margin:20px 30px
-  clear: both
+      border-bottom-color mod_selected_bg
 
 .header
   .main
     clearfix()
-    border-bottom: solid 1px #cccccc;
-    box-shadow: light_carve_shadow
-    padding-bottom: 15px
-    margin-bottom: 20px
+    border-bottom solid 1px #cccccc;
+    box-shadow light_carve_shadow
+    padding-bottom 15px
+    margin-bottom 20px
     .author
-      float:left
+      float left
     .desc
-      float:left
-      margin-left:20px
+      float left
+      margin-left 20px
       h1.title
-        margin-bottom: 3px
-        line-height: 35px
-        font-size: 35px
-        font-weight: 500
-        color: #333
-        display: inline-block
-        margin-right: 10px
+        margin-bottom 3px
+        line-height 35px
+        font-size 35px
+        color #333
+        display inline-block
+        margin-right 10px
         .version-select
-          border: 1px solid #bbb
-          border-radius: 2px
-          box-shadow: carve_shadow
-          outline: none
-          -webkit-appearance: none
-          -moz-appearance: none
-          background: #f5f5f5 url("../img/select-arrow.png") no-repeat calc(100% - 8px) center;
-          padding: 5px 20px 5px 5px
-          font-size: 15px
-          color: #444
-          vertical-align: middle
+          border 1px solid #bbb
+          border-radius 2px
+          box-shadow carve_shadow
+          outline none
+          -webkit-appearance none
+          -moz-appearance none
+          background #f5f5f5 url("../img/select-arrow.png") no-repeat calc(100% - 8px) center;
+          padding 5px 20px 5px 5px
+          font-size 15px
+          color #444
+          vertical-align middle
           &:active
-            box-shadow: inset_carve_shadow          
+            box-shadow inset_carve_shadow          
       .info
-        font-size:14px
+        font-size 14px
         .name
-          color: pallete_blue
-          font-weight: bolder
-          text-transform: uppercase
+          color pallete_blue
+          font-weight bolder
+          text-transform uppercase
         .date
-          margin-left:10px
+          margin-left 10px
   .intro
-      font-size: 16px
-      margin-bottom:40px
+      font-size 16px
 
 .detail
   .readme
     .caption
-      font-size: 18px
-      color:#666
-      font-weight: bolder
-      border-bottom: solid 1px #ccc
-      box-shadow: light_carve_shadow
+      font-size 18px
+      color #666
+      font-weight bolder
+      border-bottom solid 1px #ccc
+      box-shadow light_carve_shadow
       .text
-        background-color: #f5f5f5
-        border-top: 2px solid #ccc
-        display: inline-block
-        padding: 0 10px
-
-$section
-    border-bottom: solid 1px #dadada
-    padding: 12px 0px
-    margin: 0 20px
-    clear:both
+        background-color #f5f5f5
+        border-top 2px solid #ccc
+        display inline-block
+        padding 0 10px
+    
 $icon
-    width: 22px
-    height: 22px
-    background-size: cover
-    position: absolute
+    width 22px
+    height 22px
+    background-size cover
+    position absolute
 
 .metas
-    font-size:14px
-    color:#A6A6A6
-    .top
-        height:67px
-    .meta 
-        @extend $section
-        clearfix();
-        padding-bottom: 5px
-        .title
-            padding-left: 28px
-        $icon
-            width: 22px
-            height: 22px
-            background-size: cover
-            position: absolute
-        .icon-repo
-            @extend $icon
-            background-image: url("../img/icon-repo.png")
-        .icon-home           
-            @extend $icon
-            background-image: url("../img/icon-home.png")
-        .icon-bug
-            @extend $icon
-            background-image: url("../img/icon-bug.png")
-        .pull-right
-            width:70%
-            white-space: nowrap;
-            text-overflow: ellipsis
-            overflow: hidden
-            float: right
-    .tags
-        @extend $section
-        clearfix()      
-        .title
-            margin-bottom:5px
-        .tag
-            box-shadow: drop_shadow
-            float:left
-            margin:3px 10px 5px 0px
-            border-radius: 10px
-            padding:0 12px
-            background-color: white
-            font-size: 12px
-            font-weight: normal
-            line-height: 20px
-            color: info_color
-            &:hover
-                background-color: info_color
-                color: white
-                box-shadow: inset_carve_shadow
-                text-shadow: 0 1px 0 rgba(0, 0, 0, .4)
-
-    .maintainers
-        @extend $section      
-        border-bottom: none
-        img
-            margin-right:15px
-            margin-top:15px
+  font-size 14px
+  color #A6A6A6
+  .item
+    border-bottom solid 1px #dadada
+    padding 12px 0px
+    margin 0 20px
+    clear both
+    &:last-child
+      border-bottom none
+  .top
+    height 67px
+  .meta
+    clearfix();
+    padding-bottom 5px
+    .title
+      padding-left 28px
+    $icon
+      width 22px
+      height 22px
+      background-size cover
+      position absolute
+    .icon-repo
+      @extend $icon
+      background-image url("../img/icon-repo.png")
+    .icon-home           
+      @extend $icon
+      background-image url("../img/icon-home.png")
+    .icon-bug
+      @extend $icon
+      background-image url("../img/icon-bug.png")
+    .pull-right
+      width 70%
+      white-space nowrap;
+      text-overflow ellipsis
+      overflow hidden
+      float right
+  .tags
+    clearfix()      
+    .title
+      margin-bottom 5px
+    .tag
+      box-shadow drop_shadow
+      float left
+      margin 3px 10px 5px 0px
+      border-radius 10px
+      padding 0 12px
+      background-color white
+      font-size 12px
+      font-weight normal
+      line-height 20px
+      color info_color
+      &:hover
+        background-color info_color
+        color white
+        box-shadow inset_carve_shadow
+        text-shadow 0 1px 0 rgba(0, 0, 0, .4)
+  .maintainers  
+    img
+      margin-right 15px
+      margin-top 15px
 
 
