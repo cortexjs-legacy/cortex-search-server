@@ -1,8 +1,9 @@
 module.exports = {
     name: 'cortex-search-server',
-    couchdb: 'http://couch.cortex.dp/',
+    couchdb: 'http://couch.cortexjs.org',
+    registry: 'http://registry.cortexjs.org',
     port: 8010,
-    "debug": true
+    debug: true
 };
 
 
