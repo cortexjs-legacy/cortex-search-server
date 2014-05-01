@@ -1,85 +1,84 @@
 mixin css(path)
-    link(href="#{path}" rel="stylesheet")
+  link(href="#{path}" rel="stylesheet")
 mixin js(path)
-    script(type="text/javascript" src="#{path}")
+  script(type="text/javascript" src="#{path}")
 
 mixin mod
-    .mod(ng-repeat="package in pkgs" ng-click="viewDetail(package)" ng-class="{'mod-selected': pkg.name==package.name}")
-        //- .mask
-        .name {{package.name}}
-        //- .meta
-        //-     .star 200
-        //-     .download 298
-        .desc
-            | {{package.description}}
-            //- a.url {{package.url}}
+  .mod(ng-repeat="package in pkgs" ng-click="viewDetail(package)" ng-class="{'mod-selected': pkg.name==package.name}")
+    .name {{package.name}}
+    //- .meta
+    //-     .star 200
+    //-     .download 298
+    .desc {{package.description}}
+          //- a.url {{package.url}}
 
 mixin meta(title,icon,link)
-    .meta.item
-        i(class="icon-" + icon)
-        span.title #{title}
-        span.pull-right #{link}
+  .meta.item
+    i(class="icon-" + icon)
+    span.title #{title}
+    span.pull-right #{link}
 
 doctype html
 html(ng-app="app")
-    head
-        meta(charset="utf-8")
-        title Cortex Search
-        +css("/css/lib/animate.css")
-        +css("/css/search.css")
-        +css("/css/readme.css")
-        +css("/css/layout.css")
-        //- +css("http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&amp;subset=latin,cyrillic-ext,cyrillic")
-        
-        +js("/js/lib/angular.js")
-        +js("/js/lib/marked.js")
-        +js("/js/search.js")
-    body(ng-controller="Controller")
-        .head
-            .logo(ng-click="renderHome()")
-                img(src="/img/logo.png")
-            .search
-                i.icon-search
-                input.input(ng-model="searchInput" ng-enter="search()" placeholder="keyword:ajax|name:jquery|author:ltebean")
-                i.icon-close(ng-show="searchInput" ng-click="clearInput()")
-            span.msg(ng-show="msg") {{msg}}
-        .wrap(ng-show="pkg")
-            .list
-                +mod
-            article
-                .header
-                    .main
-                      .author
-                          img.avatar(ng-src="{{pkg.author.avatarMedium}}")
-                      .desc
-                          h1.title {{pkg.name}} 
-                              select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
-                          .info by &nbsp
-                              span.name {{pkg.author.name}} 
-                              span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
-                    .intro {{pkg.description}}
-                .detail 
-                    .readme
-                        .caption
-                            span.text README
-                        .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
-                .metas
-                    +meta("Repo","repo","{{pkg.repository.url}}")              
-                    +meta("Home","home","{{pkg.homepage}}")              
-                    +meta("Issues","bug","{{pkg.bugs.url}}")              
-                    .tags.item
-                        .title Keywords
-                        div
-                            a.tag(href="javascript:;" ng-repeat="keyword in pkg.keywords" ng-click="searchByKeyword(keyword)") {{keyword}}
-                    .maintainers.item
-                        .title Maintainers
-                        .avatars
-                            img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{maintainer.avatarMedium}}")
-                    .tags.item
-                        .title Dependents
-                        div
-                            a.tag(href="javascript:;" ng-repeat="dependent in pkg.dependents" ng-click="searchByName(dependent.name)") {{dependent.name}}
-                    .tags.item
-                        .title Dependencies
-                        div
-                            a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
+  head
+    meta(charset="utf-8")
+    title Cortex Search
+    +css("/css/lib/animate.css")
+    +css("/css/search.css")
+    +css("/css/readme.css")
+    +css("/css/layout.css")
+    +css("/css/font.css")
+    //- +css("http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&amp;subset=latin,cyrillic-ext,cyrillic")
+    
+    +js("/js/lib/angular.js")
+    +js("/js/lib/marked.js")
+    +js("/js/search.js")
+  body(ng-controller="Controller")
+    .head
+      .logo(ng-click="renderHome()")
+        img(src="/img/logo.png")
+      .search
+        i.icon-search
+        input.input(ng-model="searchInput" ng-enter="search()" placeholder="keyword:ajax|name:jquery|author:ltebean")
+        i.icon-close(ng-show="searchInput" ng-click="clearInput()")
+      span.msg(ng-show="msg") {{msg}}
+    .wrap(ng-show="pkg")
+      .list
+        +mod
+      article
+        .header
+          .main
+            .author
+              img.avatar(ng-src="{{pkg.author.avatarMedium}}")
+            .desc
+              h1.title {{pkg.name}} 
+                select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
+              .info by &nbsp
+                span.name {{pkg.author.name}} 
+                span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
+          .intro {{pkg.description}}
+        .metas
+          +meta("Repo","repo","{{pkg.repository.url}}")              
+          +meta("Home","home","{{pkg.homepage}}")              
+          +meta("Issues","bug","{{pkg.bugs.url}}")              
+          .tags.item
+            .title Keywords
+            div
+              a.tag(href="javascript:;" ng-repeat="keyword in pkg.keywords" ng-click="searchByKeyword(keyword)") {{keyword}}
+          .maintainers.item
+            .title Maintainers
+            .avatars
+              img.avatar-sm(ng-repeat="maintainer in pkg.maintainers" ng-src="{{maintainer.avatarMedium}}")
+          .tags.item
+            .title Dependents
+            div
+              a.tag(href="javascript:;" ng-repeat="dependent in pkg.dependents" ng-click="searchByName(dependent.name)") {{dependent.name}}
+          .tags.item
+            .title Dependencies
+            div
+              a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
+          .detail 
+            .readme
+              .caption
+                span.text README
+              .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
