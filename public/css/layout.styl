@@ -43,10 +43,6 @@ body
   z-index 1
   padding-top 20px
 
-$content
-  padding 20px 30px 0
-  margin-bottom 20px
-
 article
   box-sizing border-box
   background-image bg_noise
@@ -66,20 +62,41 @@ article
     position absolute
     box-shadow shadow_layout
 
-  .header
-    @extend $content
-    width width_detail
-
+  .header,
   .detail
-    @extend $content
-    width width_detail
-    padding 20px 30px
-    float left
-    clear left
+    padding 20px 30px 0
+    margin-bottom 20px
 
+  .header
+    width width_detail
   .metas
     width width_meta
-    float left
+    float right
+  .detail
+    width width_detail
+    padding 20px 30px
+    float right
 
-@media (max-width: 600px) {
-}
+  
+
+@media (max-width: 1000px)
+  article
+    &:before
+      width: 100%
+    .header,
+    .metas,
+    .detail,
+      float none
+      width 100%
+
+@media (max-width: 640px)
+  .list
+    display none
+  article
+    float none
+    width: 100%
+
+    .header,
+    .detail
+      padding-left: 4%
+      padding-right: 4%

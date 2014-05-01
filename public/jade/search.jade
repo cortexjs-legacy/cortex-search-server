@@ -77,8 +77,8 @@ html(ng-app="app")
             .title Dependencies
             div
               a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
-          .detail 
-            .readme
-              .caption
-                span.text README
-              .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
+        .detail 
+          .readme
+            .caption
+              span.text README
+            .content.markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
