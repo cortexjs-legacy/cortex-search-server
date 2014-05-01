@@ -30,10 +30,20 @@ var config = argv.config && path.join(process.cwd(), argv.config);
 
 if (config)
     config = require(config);
-else
-    config = {
-        name: 'cortex-search-server'
-    };
+else {
+    // load default config
+    var config_path = './config.js';
+    if(env == "production") 
+        config_path = './config.prod.js';
+    else if(env == 'development') 
+        config_path = './config.dev.js';
+
+    try {
+        config = require(config_path);
+    }catch(e) {
+        throw new Error("Please provide configuration file");
+    }
+}
 
 if (argv.hasOwnProperty('cluster')) {
     config.cluster = argv.cluster;
