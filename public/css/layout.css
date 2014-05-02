@@ -81,11 +81,7 @@ article:before {
   min-height: 100%;
   background-color: #fff;
   display: block;
-  margin: 0;
-  z-index: 0;
   position: absolute;
-  top: 0;
-  bottom: 0;
   -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.2);
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
