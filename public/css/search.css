@@ -170,9 +170,9 @@ height 22px {
   top: -1px;
   padding-top: 16px;
   margin-bottom: -1px;
-  background-color: #e8e8e9;
+  background-color: #e8e8eb;
   border-top-color: #d8d8d9;
-  border-bottom-color: #e8e8e9;
+  border-bottom-color: #e8e8eb;
   border-left: 3px solid #3aa4d9;
   padding-left: 21px;
 }
@@ -180,7 +180,7 @@ height 22px {
   border-top-color: #d8d8d9;
 }
 .list .mod-selected:last-child {
-  border-bottom-color: #e8e8e9;
+  border-bottom-color: #e8e8eb;
 }
 .header .main {
   border-bottom: solid 1px #e8e8e8;

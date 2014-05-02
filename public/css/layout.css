@@ -8,6 +8,19 @@ article,
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+:before,
+:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body,
+.wrap,
+.list,
+.content {
+  height: 100%;
+}
 html {
   min-width: 320px;
 }
@@ -32,7 +45,6 @@ body {
   box-sizing: border-box;
   background-color: #f5f5f6;
   max-width: 1500px;
-  min-height: 100%;
   padding-top: 60px;
 }
 .wrap:before,
@@ -43,23 +55,25 @@ body {
 .wrap:after {
   clear: both;
 }
+.list,
+.content {
+  float: left;
+  overflow: auto;
+  overflow-x: hidden;
+}
 .list {
   width: 23%;
-  float: left;
-  height: 100%;
   z-index: 1;
   padding-top: 20px;
 }
-article {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background-image: url("../img/noise-bg.png");
-  float: left;
+.content {
   width: 77%;
+}
+article {
+  background-image: url("../img/noise-bg.png");
+  min-height: 100%;
   border-left: 1px solid #e5e5e7;
-  height: 100%;
-  overflow: scroll;
+  overflow: auto;
 }
 article:before {
   content: "";
@@ -70,6 +84,8 @@ article:before {
   margin: 0;
   z-index: 0;
   position: absolute;
+  top: 0;
+  bottom: 0;
   -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.2);
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
@@ -93,6 +109,9 @@ article .detail {
   padding: 20px 30px;
   float: left;
 }
+.footer {
+  height: 80px;
+}
 @media (max-width: 1000px) {
   article:before {
     width: 100%;
@@ -112,13 +131,13 @@ article .detail {
   .list {
     display: none;
   }
-  article {
+  .content {
     float: none;
     width: 100%;
   }
-  article .header,
-  article .detail,
-  article .metas {
+  .content .header,
+  .content .detail,
+  .content .metas {
     padding-left: 4%;
     padding-right: 4%;
   }

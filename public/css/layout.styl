@@ -13,6 +13,17 @@ article,
   position relative
   box-sizing border-box
 
+:before,
+:after
+  box-sizing border-box
+
+html,
+body,
+.wrap,
+.list
+.content
+  height 100%
+
 html
   min-width 320px
 
@@ -35,25 +46,27 @@ body
   box-sizing border-box
   background-color #f5f5f6 
   max-width 1500px
-  min-height 100%
   padding-top 60px
+
+.list,
+.content
+  float left
+  overflow auto
+  overflow-x hidden
 
 .list
   width width_list
-  float left
-  height 100%
-  // overflow scroll
   z-index 1
   padding-top 20px
 
-article
-  box-sizing border-box
-  background-image bg_noise
-  float left
+.content
   width width_article
+
+article
+  background-image bg_noise
+  min-height 100%
   border-left 1px solid #e5e5e7
-  height 100%
-  overflow scroll
+  overflow auto
   &:before
     content ""
     width width_detail
@@ -63,6 +76,8 @@ article
     margin 0
     z-index 0
     position absolute
+    top 0
+    bottom 0
     box-shadow shadow_layout
 
   .header,
@@ -83,6 +98,9 @@ article
     padding 20px 30px
     float left
 
+.footer
+  height 80px
+
 @media (max-width: 1000px)
   article
     &:before
@@ -99,7 +117,7 @@ article
 @media (max-width: 640px)
   .list
     display none
-  article
+  .content
     float none
     width 100%
 
