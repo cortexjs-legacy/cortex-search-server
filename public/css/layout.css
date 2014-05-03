@@ -11,6 +11,7 @@
 .c {
   zoom: 1;
   max-width: 1500px;
+  min-width: 320px;
 }
 .c:before,
 .c:after {
@@ -63,9 +64,6 @@ body,
 .content {
   height: 100%;
 }
-html {
-  min-width: 320px;
-}
 body {
   background-image: url("../img/noise-bg.png");
 }
@@ -112,7 +110,7 @@ article .metas {
   padding: 0 20px;
 }
 article .metas {
-  margin-top: -37px;
+  margin-top: -40px;
 }
 article .detail {
   padding: 20px 30px;
