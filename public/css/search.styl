@@ -192,12 +192,21 @@ mod_bg            = #f5f5f6
       clear both
 
   .version-select
+    -webkit-appearance none
+
+    // Fixes the ugly select dropdown arrow of firefox
+    // Ref: http://stackoverflow.com/questions/6787667/what-is-the-correct-moz-appearance-value-to-hide-dropdown-arrow-of-a-select#answer-18327666
+    -moz-appearance none 
+    // moz-appearance:none alone won't fix the problem,
+    // and moz-appearance:window will disable all other styles, just like borders.
+    text-indent 0.01px
+    text-overflow ""
+    ////////////////////////////////////////////////////
+
     border 1px solid #bbb
     border-radius 2px
     box-shadow carve_shadow
     outline none
-    -webkit-appearance none
-    -moz-appearance none
     background #f5f5f5 url("../img/select-arrow.png") no-repeat calc(100% - 8px) center;
     padding 5px 20px 5px 5px
     vertical-align middle
