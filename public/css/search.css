@@ -159,12 +159,10 @@ header .msg {
 .list .mod:first-child {
   border-top-color: #f5f5f6;
 }
-.list .mod:last-child {
-  border-bottom-color: #f5f5f6;
-}
-.list .mod:last-child.mod-selected {
-  -webkit-box-shadow: 0 1px 0 #fff;
-  box-shadow: 0 1px 0 #fff;
+.list .decorate {
+  border-top: 1px solid #fff;
+  height: 80px;
+  background: url("../img/dec.png") no-repeat center center;
 }
 .list .mod-selected {
   top: -1px;
@@ -178,9 +176,6 @@ header .msg {
 }
 .list .mod-selected:first-child {
   border-top-color: #d8d8d9;
-}
-.list .mod-selected:last-child {
-  border-bottom-color: #e8e8eb;
 }
 .head .main {
   border-bottom: solid 1px #e8e8e8;
@@ -333,4 +328,36 @@ header .msg {
 .metas .maintainers img {
   margin-right: 15px;
   margin-top: 15px;
+}
+footer {
+  padding-bottom: 10px;
+  border-bottom: 20px solid #222;
+}
+footer .info {
+  padding-top: 10px;
+}
+footer .footer-logo {
+  float: right;
+  margin-right: 20px;
+  width: 40px;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+footer .links {
+  padding-right: 10px;
+  padding-top: 10px;
+  text-align: right;
+}
+footer .links .link {
+  margin-right: 10px;
+  color: #666;
+  text-shadow: 0 1px 0 #000;
+}
+footer .links .link:hover {
+  border-bottom: 1px solid #444;
+}
+footer .links .author {
+  margin-left: 5px;
+  font-weight: bolder;
 }

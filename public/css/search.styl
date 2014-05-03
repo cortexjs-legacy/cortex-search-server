@@ -149,11 +149,12 @@ mod_bg            = #f5f5f6
       color #666
     &:first-child
       border-top-color mod_bg
-    &:last-child
-      border-bottom-color mod_bg
-      &.mod-selected
-        box-shadow 0 1px 0 mod_color_glow
+  .decorate
+    border-top: 1px solid mod_color_glow
+    height 80px
+    background url("../img/dec.png") no-repeat center center
   .mod-selected
+    // So that when the first item is selected, there will be 1 extra pixel come out
     top -1px
     padding-top 16px
     margin-bottom -1px
@@ -164,8 +165,6 @@ mod_bg            = #f5f5f6
     padding-left 21px
     &:first-child
       border-top-color mod_color_shadow
-    &:last-child
-      border-bottom-color mod_selected_bg
 
 .head
   .main
@@ -289,3 +288,28 @@ $icon
     img
       margin-right 15px
       margin-top 15px
+
+footer
+  padding-bottom 10px
+  border-bottom 20px solid #222
+  .info
+    padding-top 10px
+  .footer-logo
+    float right
+    margin-right 20px
+    width 40px
+    opacity .5
+  .links
+    padding-right 10px
+    padding-top 10px
+    text-align right
+    .link
+      margin-right 10px
+      color #666
+      text-shadow 0 1px 0 #000
+      &:hover
+        border-bottom 1px solid #444
+    .author
+      margin-left 5px
+      font-weight bolder
+      

@@ -44,6 +44,7 @@ html(ng-app="app")
     .wrap.c(ng-show="pkg")
       .list.c1
         +mod
+        .decorate
       .content.c2
         article
           .head.c2-1-nf
@@ -84,6 +85,18 @@ html(ng-app="app")
               .caption
                 span.text README
               .markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
-    footer.c
-      .c2
-        .decorate.c2-1
+    footer
+      .c
+        .c2
+          .decorate.c2-1
+      .info.c
+        .c1
+          img.footer-logo(src="/img/logo.png")
+        .c2
+          .links.c2-1
+            a.link(href="http://github.com/cortexjs/cortex-search-server") Github
+            a.link(href="http://github.com/cortexjs/wiki") Documentations
+            a.link(href="http://github.com/cortexjs/cortex/issues") Issues
+            span designed by
+            a.link.author(href="http://github.com/kaelzhang") Kael
+
