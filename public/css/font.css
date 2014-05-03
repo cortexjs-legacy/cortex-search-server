@@ -19,21 +19,21 @@ a {
   font-size: 22px;
   color: #444;
 }
-.header .info {
+.head .info {
   color: #555;
   font-size: 14px;
 }
-.header .author-name {
+.head .author-name {
   color: #3aa4d9;
   font-weight: bolder;
   text-transform: uppercase;
 }
-.header .time {
+.head .time {
   font-size: 10px;
   color: #999;
   text-transform: uppercase;
 }
-.header .version-select {
+.head .version-select {
   font-size: 15px;
   color: #444;
 }
