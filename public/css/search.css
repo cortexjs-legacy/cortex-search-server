@@ -36,17 +36,17 @@ img.avatar-sm {
 height 22px {
   width: 22px;
 }
-.head {
+header {
   -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.25);
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.25);
 }
-.head .logo {
+header .logo {
   float: left;
   margin-top: 3px;
   margin-right: 20px;
   max-width: 20%;
 }
-.head .search {
+header .search {
   -webkit-box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.3);
   box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.3);
   margin-top: 10px;
@@ -59,13 +59,13 @@ height 22px {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-.head .search .icon-search {
+header .search .icon-search {
   position: absolute;
   top: 6px;
   left: 6px;
   background-image: url("../img/icon-search.png");
 }
-.head .search .input {
+header .search .input {
   background-color: transparent;
   float: left;
   border: none;
@@ -78,7 +78,7 @@ height 22px {
   color: #333;
   padding: 10px 0 10px 0;
 }
-.head .search .icon-close {
+header .search .icon-close {
   position: absolute;
   background-image: url("../img/icon-close.png");
   top: 7px;
@@ -87,7 +87,7 @@ height 22px {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
 }
-.head .msg {
+header .msg {
   -webkit-animation: fadeIn 0.5s;
   -moz-animation: fadeIn 0.5s;
   -o-animation: fadeIn 0.5s;
@@ -182,19 +182,19 @@ height 22px {
 .list .mod-selected:last-child {
   border-bottom-color: #e8e8eb;
 }
-.header .main {
+.head .main {
   border-bottom: solid 1px #e8e8e8;
   -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5);
   box-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
-.header .main .author-avatar {
+.head .main .author-avatar {
   float: left;
 }
-.header .main .desc {
+.head .main .desc {
   float: left;
   margin-left: 15px;
 }
-.header .main .desc h1.title {
+.head .main .desc h1.title {
   margin-bottom: 3px;
   line-height: 35px;
   font-size: 35px;
@@ -202,15 +202,15 @@ height 22px {
   display: inline-block;
   margin-right: 10px;
 }
-.header .main .desc .info .author-name {
+.head .main .desc .info .author-name {
   margin-left: 5px;
 }
-.header .main .time {
+.head .main .time {
   padding-top: 3px;
   text-align: right;
   clear: both;
 }
-.header .version-select {
+.head .version-select {
   border: 1px solid #bbb;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -223,7 +223,7 @@ height 22px {
   padding: 5px 20px 5px 5px;
   vertical-align: middle;
 }
-.header .version-select:active {
+.head .version-select:active {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 1px 0 #fff;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.3), 0 1px 0 #fff;
 }

@@ -34,7 +34,7 @@ html(ng-app="app")
     +js("/js/lib/marked.js")
     +js("/js/search.js")
   body(ng-controller="Controller")
-    .head
+    header
       img.logo(ng-click="renderHome()" src="/img/logo.png")
       .search
         i.icon-search
@@ -46,7 +46,7 @@ html(ng-app="app")
         +mod
       .content
         article
-          .header
+          .head
             .main
               .author-avatar
                 img.avatar(ng-src="{{pkg.author.avatarMedium}}")
@@ -84,4 +84,4 @@ html(ng-app="app")
               .caption
                 span.text README
               .markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
-    //- .footer
+    //- footer
