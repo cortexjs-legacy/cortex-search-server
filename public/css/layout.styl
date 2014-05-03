@@ -6,6 +6,50 @@ shadow_layout   = 0 0 8px rgba(0, 0, 0, .2)
 bg_noise        = url("../img/noise-bg.png")
 border_color_detail = #e5e5e7
 
+////////////////////////////////////////////////////////////////////////////////
+
+// |             c              |
+// |  c1     |        c2        |
+//           |  c2-1   |  c2-2  | 
+.c,
+.c1,
+.c2,
+.c2-1,
+.c2-2
+  box-sizing border-box
+  position relative
+
+.c
+  clearfix()
+  max-width 1500px
+
+.c1,
+.c2
+  overflow auto
+  overflow-x hidden
+
+.c1
+  float left
+  width width_list
+  z-index 1
+
+.c2
+  float right
+  width width_article
+
+// float none
+.c2-1-nf
+  width width_detail
+
+.c2-1
+  width width_detail
+  float left
+.c2-2
+  width width_meta
+  float right
+
+////////////////////////////////////////////////////////////////////////////////
+
 .list,
 article,
 .head,
@@ -40,25 +84,11 @@ header
   z-index 10
 
 .wrap
-  clearfix()
-  box-sizing border-box
-  background-color #f5f5f6 
-  max-width 1500px
+  background-color #f5f5f6
   padding-top 60px
 
-.list,
-.content
-  float left
-  overflow auto
-  overflow-x hidden
-
 .list
-  width width_list
-  z-index 1
   padding-top 20px
-
-.content
-  width width_article
 
 article
   background-image bg_noise
@@ -74,64 +104,54 @@ article
     position absolute
     min-height 100%
     box-shadow shadow_layout
-
-
   .head,
   .detail
     padding 20px 30px 0
-
   .metas
     padding 0 20px
-
-  .head
-    width width_detail
   .metas
-    width width_meta
-    float right
     margin-top -37px
   .detail
-    width width_detail
     padding 20px 30px
-    float left
+    
 
 footer
   height 80px
   background-color #2e2e2f
-  .decorate-wrap
-    width width_article
-    float right
-    .decorate
+  .decorate
+    height 10px
+    background-color #fff
+    // There's a contract, so it is a little darker than border_color_detail
+    border-left 1px solid #999
+    &:after
+      content ""
+      position absolute
       height 10px
-      width width_detail
-      background-color #fff
-      // There's a contract, so it is a little darker than border_color_detail
-      border-left 1px solid #999
-      &:after
-        content ""
-        position absolute
-        height 10px
-        width 10px
-        background-image url("../img/footer-shad.png")
-        right -10px
+      width 10px
+      background-image url("../img/footer-shad.png")
+      right -10px
 
 
 @media (max-width: 1000px)
+  .c2-1,
+  .c2-2
+    float none
+    width 100%
+
+  .c2-1-nf
+    width 100%
+
   article
     &:before
       width: 100%
-    .head,
-    .metas,
-    .detail,
-      float none
-      width 100%
     .metas
       margin-top 0
       padding 0 30px
 
 @media (max-width: 640px)
-  .list
+  .c1
     display none
-  .content
+  .c2
     float none
     width 100%
 

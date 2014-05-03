@@ -1,3 +1,50 @@
+.c,
+.c1,
+.c2,
+.c2-1,
+.c2-2 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+.c {
+  zoom: 1;
+  max-width: 1500px;
+}
+.c:before,
+.c:after {
+  content: "";
+  display: table;
+}
+.c:after {
+  clear: both;
+}
+.c1,
+.c2 {
+  overflow: auto;
+  overflow-x: hidden;
+}
+.c1 {
+  float: left;
+  width: 23%;
+  z-index: 1;
+}
+.c2 {
+  float: right;
+  width: 77%;
+}
+.c2-1-nf {
+  width: 70%;
+}
+.c2-1 {
+  width: 70%;
+  float: left;
+}
+.c2-2 {
+  width: 30%;
+  float: right;
+}
 .list,
 article,
 .head,
@@ -34,35 +81,11 @@ header {
   z-index: 10;
 }
 .wrap {
-  zoom: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   background-color: #f5f5f6;
-  max-width: 1500px;
   padding-top: 60px;
 }
-.wrap:before,
-.wrap:after {
-  content: "";
-  display: table;
-}
-.wrap:after {
-  clear: both;
-}
-.list,
-.content {
-  float: left;
-  overflow: auto;
-  overflow-x: hidden;
-}
 .list {
-  width: 23%;
-  z-index: 1;
   padding-top: 20px;
-}
-.content {
-  width: 77%;
 }
 article {
   background-image: url("../img/noise-bg.png");
@@ -88,34 +111,22 @@ article .detail {
 article .metas {
   padding: 0 20px;
 }
-article .head {
-  width: 70%;
-}
 article .metas {
-  width: 30%;
-  float: right;
   margin-top: -37px;
 }
 article .detail {
-  width: 70%;
   padding: 20px 30px;
-  float: left;
 }
 footer {
   height: 80px;
   background-color: #2e2e2f;
 }
-footer .decorate-wrap {
-  width: 77%;
-  float: right;
-}
-footer .decorate-wrap .decorate {
+footer .decorate {
   height: 10px;
-  width: 70%;
   background-color: #fff;
   border-left: 1px solid #999;
 }
-footer .decorate-wrap .decorate:after {
+footer .decorate:after {
   content: "";
   position: absolute;
   height: 10px;
@@ -124,13 +135,15 @@ footer .decorate-wrap .decorate:after {
   right: -10px;
 }
 @media (max-width: 1000px) {
-  article:before {
+  .c2-1,
+  .c2-2 {
+    float: none;
     width: 100%;
   }
-  article .head,
-  article .metas,
-  article .detail,
-  article float none {
+  .c2-1-nf {
+    width: 100%;
+  }
+  article:before {
     width: 100%;
   }
   article .metas {
@@ -139,16 +152,16 @@ footer .decorate-wrap .decorate:after {
   }
 }
 @media (max-width: 640px) {
-  .list {
+  .c1 {
     display: none;
   }
-  .content {
+  .c2 {
     float: none;
     width: 100%;
   }
-  .content .head,
-  .content .detail,
-  .content .metas {
+  .c2 .head,
+  .c2 .detail,
+  .c2 .metas {
     padding-left: 4%;
     padding-right: 4%;
   }

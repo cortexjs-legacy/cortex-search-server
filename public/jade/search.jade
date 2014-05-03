@@ -41,12 +41,12 @@ html(ng-app="app")
         input.input(ng-model="searchInput" ng-enter="search()" placeholder="keyword:ajax|name:jquery|author:ltebean")
         i.icon-close(ng-show="searchInput" ng-click="clearInput()")
       span.msg(ng-show="msg") {{msg}}
-    .wrap(ng-show="pkg")
-      .list
+    .wrap.c(ng-show="pkg")
+      .list.c1
         +mod
-      .content
+      .content.c2
         article
-          .head
+          .head.c2-1-nf
             .main
               .author-avatar
                 img.avatar(ng-src="{{pkg.author.avatarMedium}}")
@@ -57,9 +57,9 @@ html(ng-app="app")
                   span.author-name {{pkg.author.name}}
               .time
                 span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
-          .detail
+          .detail.c2-1
             .intro {{pkg.description}}
-          .metas
+          .metas.c2-2
             +meta("Repo","repo","{{pkg.repository.url}}")              
             +meta("Home","home","{{pkg.homepage}}")              
             +meta("Issues","bug","{{pkg.bugs.url}}")              
@@ -79,12 +79,11 @@ html(ng-app="app")
               .title Dependencies
               div
                 a.tag(href="javascript:;" ng-repeat="(dependency,version) in pkg.dependencies" ng-click="searchByName(dependency)") {{dependency}}
-          .detail
+          .detail.c2-1
             .readme
               .caption
                 span.text README
               .markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
-    footer
-      .decorate-wrap
-        .decorate
-      
+    footer.c
+      .c2
+        .decorate.c2-1
