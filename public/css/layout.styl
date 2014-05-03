@@ -4,12 +4,14 @@ width_detail    = 70%
 width_meta      = 30%
 shadow_layout   = 0 0 8px rgba(0, 0, 0, .2)
 bg_noise        = url("../img/noise-bg.png")
+border_color_detail = #e5e5e7
 
 .list,
 article,
 .head,
 .detail,
-.metas
+.metas,
+.decorate
   position relative
   box-sizing border-box
 
@@ -61,7 +63,7 @@ header
 article
   background-image bg_noise
   min-height 100%
-  border-left 1px solid #e5e5e7
+  border-left 1px solid border_color_detail
   overflow auto
   overflow-x hidden
   &:before
@@ -95,6 +97,23 @@ article
 footer
   height 80px
   background-color #2e2e2f
+  .decorate-wrap
+    width width_article
+    float right
+    .decorate
+      height 10px
+      width width_detail
+      background-color #fff
+      // There's a contract, so it is a little darker than border_color_detail
+      border-left 1px solid #999
+      &:after
+        content ""
+        position absolute
+        height 10px
+        width 10px
+        background-image url("../img/footer-shad.png")
+        right -10px
+
 
 @media (max-width: 1000px)
   article

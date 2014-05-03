@@ -2,7 +2,8 @@
 article,
 .head,
 .detail,
-.metas {
+.metas,
+.decorate {
   position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -103,6 +104,24 @@ article .detail {
 footer {
   height: 80px;
   background-color: #2e2e2f;
+}
+footer .decorate-wrap {
+  width: 77%;
+  float: right;
+}
+footer .decorate-wrap .decorate {
+  height: 10px;
+  width: 70%;
+  background-color: #fff;
+  border-left: 1px solid #999;
+}
+footer .decorate-wrap .decorate:after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background-image: url("../img/footer-shad.png");
+  right: -10px;
 }
 @media (max-width: 1000px) {
   article:before {
