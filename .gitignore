@@ -26,3 +26,4 @@ thumbs.db
 node_modules
 config.prod.js
 .cache/
+public/css/*.css
