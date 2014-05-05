@@ -55,7 +55,7 @@ html(ng-app="app")
               .desc
                 h1.title {{pkg.name}} 
                   select.version-select(ng-model="currentVersion" ng-change="viewVersion(currentVersion)" ng-options="version as version for (version,detail) in pkg.versions")
-                .info by
+                .info Last updated by
                   span.author-name {{pkg.author.name}}
               .time
                 span.date {{pkg.time.modified | date:MMM-dd-yyyy}}
