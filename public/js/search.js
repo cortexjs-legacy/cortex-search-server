@@ -89,7 +89,29 @@ function Controller($scope, $http, $timeout) {
 		var result;
 		try {
 			result = marked(rawText);
-			return result;
+			$('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+			// if the lang tag is availiable, use the code below 
+			/*
+			$('pre code').each(function(i, e) {
+    			var lang = $(this).attr('class').split("-")[1];
+    			var code = hljs.highlight(lang, $(this).text());
+    			$(this).html(code.value);
+    		});
+            */
+
+            // reload comments  
+            //var path =  $("h1.title").text().split(" ")[0];
+            var reset = function () {
+                DISQUS.reset({
+                  reload: true,
+                  config: function () {
+                    //this.page.identifier = path;
+                    //this.page.url = 'http://search.cortexjs.org/package/'+path+"/";
+                  }
+                });
+            }; 
+            reset();
+  			return result;
 		} catch (e) {
 			return result;
 		}
@@ -103,6 +125,10 @@ function Controller($scope, $http, $timeout) {
 				if (!isHistory) {
 					history.pushState(null, pkg.name, '/package/' + pkg.name)
 				}
+				// translate url
+				var repo = $scope.pkg.repository.url;
+				var res = "http://"+repo.replace(".git","").replace(/(git:\/\/|http:\/\/|git@|https:\/\/)(.*)/,"$2").replace(":","/");
+				$scope.pkg.repository.urllink = res;
 			}).error(function(data) {
 				showMsg('Opps, unknown error');
 			})
