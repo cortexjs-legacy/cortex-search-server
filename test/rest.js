@@ -4,6 +4,19 @@ var request = require('supertest'),
 
 describe('rest.js', function() {
     app = app.listen();
+
+    describe('browse', function() {
+        it('browseUpdated', function(done) {
+            request(app)
+                .get('/-/browse/updated')
+                .expect(200, function(err, res) {
+                    if(res)
+                        console.log(res.body);
+                    done(err);
+                });
+        });
+    });
+
     describe('package', function() {
 
         it('package missing', function(done) {

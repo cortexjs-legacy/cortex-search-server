@@ -23,14 +23,30 @@ function Controller($scope, $http, $timeout) {
 
 	$scope.search = function() {
 		var input = $scope.searchInput;
-		if (input.indexOf(':') == -1) {
+                if(input == "*") {
+                        $scope.browseUpdated();
+		} else if (input.indexOf(':') == -1) {
 			$scope.searchByWords(input);
 		} else {
 			$scope.searchByCriteria(input);
 		}
-
 	}
 
+	$scope.browseUpdated = function() {
+		$http.get('/-/browse/updated')
+		.success(function(data) {
+			$scope.pkgs = data;
+			if(data.length > 0) {
+				$scope.viewDetail(data[0]);
+			}else {
+				$scope.pkg = null;
+				showMsg("No package found");
+			}
+		}).error(function(data) {
+			showMsg("Opps, unknown error");
+		});
+	};
+        
 	$scope.searchByWords = function(input) {
 		$scope.searchInput = input;
 		var queryString = toQueryString({
