@@ -1,7 +1,7 @@
 {
   "name": "cortex-search-server",
   "description": "website for search.cortexjs.org",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bin": {
     "ctx-search": "./bin/server.js"
   },
