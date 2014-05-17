@@ -1,6 +1,9 @@
 build/
-*.bak
 config.js
+*.css
+
+# Numerous always-ignore extensions
+*.bak
 *.patch
 *.diff
 *.err
@@ -13,6 +16,8 @@ config.js
 *.vi
 *~
 *.sass-cache
+
+# OS or Editor folders
 .DS_Store
 ._*
 .cache
@@ -22,8 +27,22 @@ config.js
 *.esproj
 *.sublime-project
 *.sublime-workspace
+nbproject
 thumbs.db
+
+# Folders to ignore
+.hg
+.svn
+.CVS
+.idea
 node_modules
-config.prod.js
-.cache/
-public/css/*.css
+old/
+*-old/
+*-notrack/
+build/
+combo/
+reference/
+jscoverage_lib/
+temp/
+
+test/expected/
