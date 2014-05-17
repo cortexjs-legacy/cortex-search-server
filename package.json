@@ -1,10 +1,17 @@
 {
   "name": "cortex-search-server",
-  "description": "website for cortex",
+  "description": "website for search.cortexjs.org",
   "version": "0.0.1",
   "bin": {
     "ctx-search": "./bin/server.js"
   },
+  "keywords": [
+    "cortex",
+    "cortex-search",
+    "www",
+    "koa",
+    "web"
+  ],
   "dependencies": {
     "marked": "^0.2.10",
     "cookies": "~0.3.1",
