@@ -89,7 +89,9 @@ function Controller($scope, $http, $timeout) {
 		var result;
 		try {
 			result = marked(rawText);
-			$('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+			$('pre code').each(function(i, e) {
+				hljs.highlightBlock(e)
+			});
 			// if the lang tag is availiable, use the code below 
 			/*
 			$('pre code').each(function(i, e) {
