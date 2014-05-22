@@ -12,11 +12,13 @@ mixin mod
     .desc {{package.description}}
           //- a.url {{package.url}}
 
-mixin meta(title,icon,link)
+mixin meta(title,icon,link, link_name)
   .meta.item
     i(class="icon-" + icon)
     span.title #{title}
-    span.pull-right #{link}
+    span.pull-right
+      a(href='#{link}' target="_blank") #{link_name}
+    //span.pull-right #{link}
 
 doctype html
 html(ng-app="app")
@@ -29,11 +31,14 @@ html(ng-app="app")
     +css("/css/readme.css")
     +css("/css/layout.css")
     +css("/css/font.css")
+    +css("/css/styles/vs.css")
     //- +css("http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&amp;subset=latin,cyrillic-ext,cyrillic")
-    
+    +js("http://code.jquery.com/jquery-1.9.1.min.js")
     +js("/js/lib/angular.js")
     +js("/js/lib/marked.js")
+    +js("/js/lib/highlight.pack.js")
     +js("/js/search.js")
+    
   body(ng-controller="Controller")
     header
       img.logo(ng-click="renderHome()" src="/img/logo.png")
@@ -62,9 +67,9 @@ html(ng-app="app")
           .detail.c2-1
             .intro {{pkg.description}}
           .metas.c2-2
-            +meta("Repo","repo","{{pkg.repository.url}}")              
-            +meta("Home","home","{{pkg.homepage}}")              
-            +meta("Issues","bug","{{pkg.bugs.url}}")              
+            +meta("Repo","repo","{{pkg.repository.urllink}}","{{pkg.repository.url}}")              
+            +meta("Home","home","{{pkg.homepage}}","{{pkg.homepage}}")              
+            +meta("Issues","bug","{{pkg.bugs.url}}","{{pkg.bugs.url}}")              
             .tags.item
               .title Keywords
               div
@@ -86,6 +91,19 @@ html(ng-app="app")
               .caption
                 span.text README
               .markdown(ng-bind-html-unsafe="marked(pkg.readmeSrc)")
+          #disqus_thread.detail.c2-1
+            script(for="window" event="onload").
+              var disqus_shortname = 'mytestweb'; // required: replace example with your forum shortname
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })(); 
+            noscript Please enable JavaScript to view the 
+              a.noscript(href="http://disqus.com/?ref_noscript") comments powered by Disqus.
+            a.brlink(href="http://disqus.com") comments powered by 
+              span.logo-disqus Disqus
     footer
       .c
         .c2
