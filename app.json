@@ -1,0 +1,6 @@
+{
+    "name": "cortex-search-server",
+    "script": "bin/server.js",
+    "node_args" : "--harmony",
+    "args": ["-c", "config.js"]
+}
